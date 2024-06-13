@@ -1,11 +1,16 @@
-import { getAnime } from "@/lib/data";
+import { getAnime, getAnimes } from "@/lib/data";
 import React from "react";
 import Image from "next/image";
 import { URLEncoding } from "@/lib/const";
 import styles from "./animepage.module.css";
+import { Anime } from "@/lib/Anime";
 
 export function generateStaticParams() {
-  return [{ anime: "test" }]
+  const animes: Anime[] = getAnimes().flat();
+
+  return animes.map((title) => ({
+    anime: title.engTitle,
+  }));
 }
 
 const AnimePage = ({ params }: any) => {
