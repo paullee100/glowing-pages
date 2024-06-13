@@ -4,6 +4,10 @@ import Image from "next/image";
 import { URLEncoding } from "@/lib/const";
 import styles from "./animepage.module.css";
 
+export function generateStaticParams() {
+  return [{ anime: "test" }]
+}
+
 const AnimePage = ({ params }: any) => {
   let { anime } = params;
 
