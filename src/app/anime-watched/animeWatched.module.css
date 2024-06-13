@@ -1,0 +1,16 @@
+.languageButton {
+    cursor: pointer;
+}
+
+.navigateToLetter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alphabetLink:visited {
+    color: blue;
+}
+
+.section {
+    text-align: center;
+}

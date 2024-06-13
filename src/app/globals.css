@@ -1,0 +1,9 @@
+:root {
+  --bg: skyblue;
+  --text: black;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}

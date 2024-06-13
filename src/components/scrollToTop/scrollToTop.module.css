@@ -1,0 +1,23 @@
+.button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 9999px;
+    padding: 0.5rem;
+    outline: none;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.visible {
+    opacity: 100;
+}
+
+.invisible {
+    opacity: 0;
+}
