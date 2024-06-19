@@ -27,7 +27,7 @@ const AnimeWatchedPage = () => {
     }
     updateAnimes(getAnimes(genres, themes))
     // console.log(animes)
-  }, [genres, themes]);
+  }, [state, genres, themes]);
 
   const searchFilter = () => {
 
