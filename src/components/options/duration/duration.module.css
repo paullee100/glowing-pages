@@ -2,7 +2,6 @@
     text-align: center;
 }
 
-.genre_container div {
+.duration_container div {
     display: inline-flex;
-    margin-right: 24px;
 }

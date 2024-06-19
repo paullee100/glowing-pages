@@ -37,6 +37,23 @@ export const s_anime = [
         "24 minutes",
     ),
     new Anime(
+        "Scott Pilgrim Takes Off",
+        "",
+        "/Scott_Pilgrim_Takes_Off.png",
+        8,
+        "MA - Mature Rating",
+        Synopsis.ScottPilgrim,
+        ["Netflix"],
+        "TV",
+        "November 17 2023",
+        "Fall 2023",
+        "Science Saru",
+        "Comic",
+        ["Comedy", "Action", "Adventure", "Fantasy"],
+        [""],
+        "27 minutes"
+    ),
+    new Anime(
         "Seirei Gensouki: Spirit Chronicles",
         "Seirei Gensouki",
         "https://cdn.myanimelist.net/images/anime/1836/116060.jpg",

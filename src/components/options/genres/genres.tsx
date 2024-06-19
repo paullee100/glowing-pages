@@ -7,7 +7,7 @@ const GenresSearch = forwardRef<HTMLDivElement>((props, ref) => {
     
     return (
     <div className={styles.container}>
-        <label className={styles.title}>Genres</label>
+        <label><h1>Genres</h1></label>
         <div className={styles.genre_container} ref={ref}>
             {genres.map((genre) => (
                 <div key={genre}>

@@ -7,7 +7,7 @@ const ThemeSearch = forwardRef<HTMLDivElement>((props, ref) => {
 
   return (
     <div className={styles.container}>
-        <label>Themes</label>
+        <label><h1>Themes</h1></label>
         <div className={styles.theme_container} ref={ref}>
             {themes.map((theme) => (
               <div key={theme}>

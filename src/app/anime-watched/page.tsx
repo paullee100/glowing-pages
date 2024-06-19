@@ -9,6 +9,7 @@ import { alphabets } from "@/lib/const";
 import GenresSearch from "@/components/options/genres/genres";
 import ThemeSearch from "@/components/options/theme/theme";
 import { Anime } from "@/lib/Anime";
+import DurationSearch from "@/components/options/duration/duration";
 
 const AnimeWatchedPage = () => {
   const [animes, updateAnimes] = useState<Anime[][]>(getAnimes());
@@ -58,15 +59,22 @@ const AnimeWatchedPage = () => {
   return (
     <div>
 
-      <label className={styles.switch}>
-        <input type="checkbox" className={styles.input} onClick={() => changeState((state) => !state)}/>
-        <span className={styles.slider}></span>
-      </label>
+      <div className={styles.translationContainer}>
+        <span>English</span>
+        <label className={styles.switch}>
+          <input type="checkbox" className={styles.input} onClick={() => changeState((state) => !state)}/>
+          <span className={styles.slider}></span>
+        </label>
+        <span>Japanese</span>
+      </div>
 
       <GenresSearch ref={genreRef} />
       <ThemeSearch ref={themeRef} />
+      <DurationSearch />
 
-      <button onClick={searchFilter}>Search</button>
+      <div className={styles.center}>
+        <button className={styles.searchButton} onClick={searchFilter}>Search</button>
+      </div>
 
       <div>
         {animes?.length === 26 ? (
@@ -85,7 +93,7 @@ const AnimeWatchedPage = () => {
           <div></div>
         )}
 
-        {animes?.map((letter, index) => (
+        {animes[0].length > 0 ? animes?.map((letter, index) => (
           <div key={index}>
             {animes?.length === 26 ? (
               <h1
@@ -100,7 +108,7 @@ const AnimeWatchedPage = () => {
               <AnimeSection letter={letter} language={state} />
             </div>
           </div>
-        ))}
+        )) : <div className={styles.error}>No animes found...</div>}
       </div>
     </div>
   );

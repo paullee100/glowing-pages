@@ -28,8 +28,8 @@ const AnimePage = ({ params }: any) => {
           <Image
             src={data?.img || "/noAvatar.png"}
             alt=""
-            width={200}
-            height={400}
+            width={400}
+            height={500}
           />
         </div>
         <div>{data?.engTitle}</div>
