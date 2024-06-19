@@ -20,4 +20,6 @@ const GenresSearch = forwardRef<HTMLDivElement>((props, ref) => {
   )
 });
 
+GenresSearch.displayName = 'GenresSearch';
+
 export default GenresSearch

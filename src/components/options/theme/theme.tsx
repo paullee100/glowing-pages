@@ -20,4 +20,6 @@ const ThemeSearch = forwardRef<HTMLDivElement>((props, ref) => {
   )
 });
 
+ThemeSearch.displayName = 'ThemeSearch';
+
 export default ThemeSearch
