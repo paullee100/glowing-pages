@@ -24,8 +24,9 @@ import { w_anime } from "./alphabets/w/wData";
 import { x_anime } from "./alphabets/x/xData";
 import { y_anime } from "./alphabets/y/yData";
 import { z_anime } from "./alphabets/z/zData";
+import { Anime } from "@/lib/Anime";
 
-const animes = [
+const animes: Anime[][] = [
   a_anime,
   b_anime,
   c_anime,
@@ -54,11 +55,13 @@ const animes = [
   z_anime
 ];
 
-export const getAnimes = () => {
-  return animes;
+const flat_animes = animes.flat();
+
+export const getAnimes = (...args: string[][]): Anime[][] => {
+  return args.length === 0 || (args[0].length === 0 && args[1].length === 0) ? animes : getFilteredAnime(args[0], args[1]);
 };
 
-export const getAnime = (name: string) => {
+export const getAnime = (name: string): Anime | undefined => {
   const alphabetSection = name.charAt(0).toLowerCase().charCodeAt(0);
   const index = alphabetSection - 97;
 
@@ -68,3 +71,58 @@ export const getAnime = (name: string) => {
     }
   }
 };
+
+export const getJapaneseTitle = (): Anime[][] => {
+    const sortedAnime = new Array(26);
+
+    for (let i = 0; i < sortedAnime.length; i++) {
+      sortedAnime[i] = [];
+    }
+
+    const lowerCaseA = "a".charCodeAt(0);
+    const upperCaseA = "A".charCodeAt(0);
+    for (let i = 0; i < flat_animes.length; i++) {
+      flat_animes[i].japTitle = flat_animes[i].japTitle === "" ? flat_animes[i].engTitle : flat_animes[i].japTitle;
+      const firstCharASCII = flat_animes[i].japTitle.charCodeAt(0);
+
+      const index =
+        firstCharASCII - lowerCaseA > 0
+          ? firstCharASCII - lowerCaseA
+          : firstCharASCII - upperCaseA;
+      sortedAnime[index].push(flat_animes[i]);
+    }
+
+    return sortedAnime;
+}
+
+export const getGenres = (): string[] => {
+  const genres: string[] = [];
+
+  for (const anime of flat_animes) {
+    for (const genre of anime.genres) {
+      if (!genres.includes(genre)) {
+        genres.push(genre);
+      }
+    }
+  }
+  genres.sort();
+  return genres;
+}
+
+export const getThemes = (): string[] => {
+  const themes: string[] = [];
+
+  for (const anime of flat_animes) {
+    for (const theme of anime.themes) {
+      if (!themes.includes(theme) && theme !== "") {
+        themes.push(theme);
+      }
+    }
+  }
+  themes.sort();
+  return themes;
+}
+
+const getFilteredAnime = (genre: string[], theme: string[]): Anime[][] => {
+  return [flat_animes.filter(anime => (genre.length === 0 || genre.every(r => anime.genres.includes(r))) && (theme.length === 0 || theme.every(r => anime.themes.includes(r))))];
+}

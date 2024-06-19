@@ -19,6 +19,7 @@ const AnimeCard = ( { anime, title } : Props) => {
                 src={anime.img || "/noAvatar.png"}
                 alt=""
                 fill
+                sizes="100%"
                 className={styles.card} />
             </div>
         </div>

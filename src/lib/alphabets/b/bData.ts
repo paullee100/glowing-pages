@@ -84,7 +84,7 @@ export const b_anime = [
         "CloverWorks",
         "4-koma manga",
         ["Comedy"],
-        ["CDGCT", "Music"],
+        ["CGDCT", "Music"],
         "23 minutes",
     ),
     new Anime(

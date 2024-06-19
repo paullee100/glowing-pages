@@ -1,0 +1,7 @@
+.title {
+    text-align: center;
+}
+
+.genre_container div {
+    display: inline-flex;
+}
