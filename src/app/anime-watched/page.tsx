@@ -11,8 +11,7 @@ import ThemeSearch from "@/components/options/theme/theme";
 import { Anime } from "@/lib/Anime";
 
 const AnimeWatchedPage = () => {
-  let animes: Anime[][];
-
+  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes());
   const [state, changeState] = useState(true);
   const [genres, updateGenres] = useState<string[]>([]);
   const [themes, updateThemes] = useState<string[]>([]);
@@ -20,24 +19,15 @@ const AnimeWatchedPage = () => {
   const genreRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
 
-  if (!state) {
-    animes = getJapaneseTitle();
-  } else {
-    animes = getAnimes();
-  }
-  const [listOfAnime, filterAnime] = useState(animes);
-
   useEffect(() => {
-    // console.log(genres);
-    // console.log(themes);
-    animes = getAnimes(genres, themes)
-    console.log(animes)
-    filterAnime(animes);
+    if (!state) {
+      updateAnimes(getJapaneseTitle());
+    } else {
+      updateAnimes(getAnimes());
+    }
+    updateAnimes(getAnimes(genres, themes))
+    // console.log(animes)
   }, [genres, themes]);
-
-  const arr1 = ["apple", "banana", "orange"];
-  const arr2 = ["apple", "orange"];
-  // console.log(arr2.every(r => arr1.includes(r)));
 
   const searchFilter = () => {
 
@@ -79,7 +69,7 @@ const AnimeWatchedPage = () => {
       <button onClick={searchFilter}>Search</button>
 
       <div>
-        {listOfAnime.length === 26 ? (
+        {animes?.length === 26 ? (
           <div className={styles.navigateToLetter}>
             {alphabets.map((alphabet) => (
               <Link
@@ -95,9 +85,9 @@ const AnimeWatchedPage = () => {
           <div></div>
         )}
 
-        {listOfAnime.map((letter, index) => (
+        {animes?.map((letter, index) => (
           <div key={index}>
-            {listOfAnime.length === 26 ? (
+            {animes?.length === 26 ? (
               <h1
                 id={String.fromCharCode(65 + index)}
                 className={styles.section}>
