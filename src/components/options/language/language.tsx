@@ -9,7 +9,7 @@ const Language = () => {
   const [state, changeState] = useState(true);
 
   if (!state) {
-    const flatten: Anime[] = getAnimes().flat();
+    const flatten: Anime[] = getAnimes([], []).flat();
     const sortedAnime = new Array(26);
 
     for (let i = 0; i < sortedAnime.length; i++) {
@@ -31,7 +31,7 @@ const Language = () => {
 
     animes = sortedAnime;
   } else {
-    animes = getAnimes();
+    animes = getAnimes([], []);
   }
 
   return (
