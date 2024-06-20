@@ -9,7 +9,7 @@ const AnimeWatchingPage = () => {
   return (
     <div className={styles.container}>
         {animes.map((anime) => (
-            <div className={styles.post}>
+            <div className={styles.post} key={anime.engTitle}>
                 <AnimeCard anime={anime} title={anime.engTitle}/>
             </div>
         ))}
