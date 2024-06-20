@@ -10,9 +10,10 @@ import GenresSearch from "@/components/options/genres/genres";
 import ThemeSearch from "@/components/options/theme/theme";
 import { Anime } from "@/lib/Anime";
 import DurationSearch from "@/components/options/duration/duration";
+import AnimeContent from "@/components/animeSection/animeContent";
 
 const AnimeWatchedPage = () => {
-  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes());
+  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], []));
   const [state, changeState] = useState(true);
   const [genres, updateGenres] = useState<string[]>([]);
   const [themes, updateThemes] = useState<string[]>([]);
@@ -22,25 +23,23 @@ const AnimeWatchedPage = () => {
 
   useEffect(() => {
     if (!state) {
-      updateAnimes(getJapaneseTitle());
+      updateAnimes(getJapaneseTitle(genres, themes));
     } else {
-      updateAnimes(getAnimes());
+      updateAnimes(getAnimes(genres, themes));
     }
-    updateAnimes(getAnimes(genres, themes))
     // console.log(animes)
   }, [state, genres, themes]);
 
   const searchFilter = () => {
 
     const genreFilter: string[] = [];
-    const themeFilter = [];
+    const themeFilter: string[] = [];
 
     for (let i = 0; i < genreRef.current?.children.length!; i++) {
       const getCheckBox = genreRef.current?.children[i].firstElementChild as HTMLInputElement
       if (getCheckBox.checked) {
         console.log(genreRef.current?.children[i].textContent!);
         genreFilter.push(genreRef.current?.children[i].textContent!);
-        // updateGenres((genres) => [...genres, genreRef.current?.children[i].textContent!]);
       }
     }
 
@@ -48,7 +47,6 @@ const AnimeWatchedPage = () => {
       const getCheckBox = themeRef.current?.children[i].firstElementChild as HTMLInputElement
       if (getCheckBox.checked) {
         themeFilter.push(themeRef.current?.children[i].textContent!);
-        // updateThemes([...themes, themeRef.current?.children[i].textContent!]);
       }
     }
 
@@ -73,43 +71,11 @@ const AnimeWatchedPage = () => {
       <DurationSearch />
 
       <div className={styles.center}>
+        <button disabled={true}>Clear Filter</button>
         <button className={styles.searchButton} onClick={searchFilter}>Search</button>
       </div>
 
-      <div>
-        {animes?.length === 26 ? (
-          <div className={styles.navigateToLetter}>
-            {alphabets.map((alphabet) => (
-              <Link
-                href={`#${alphabet}`}
-                className={styles.alphabetLink}
-                key={alphabet}
-                scroll={true}>
-                {alphabet}
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div></div>
-        )}
-
-        {animes[0].length > 0 ? animes?.map((letter, index) => (
-          <div key={index}>
-            {animes?.length === 26 ? (
-              <h1
-                id={String.fromCharCode(65 + index)}
-                className={styles.section}>
-                {String.fromCharCode(65 + index)}
-              </h1>
-            ) : (
-              <div className={styles.spacing}></div>
-            )}
-            <div>
-              <AnimeSection letter={letter} language={state} />
-            </div>
-          </div>
-        )) : <div className={styles.error}>No animes found...</div>}
-      </div>
+      <AnimeContent animes={animes} state={state} />
     </div>
   );
 };

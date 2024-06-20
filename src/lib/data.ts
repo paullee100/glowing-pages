@@ -57,8 +57,8 @@ const animes: Anime[][] = [
 
 const flat_animes = animes.flat();
 
-export const getAnimes = (...args: string[][]): Anime[][] => {
-  return args.length === 0 || (args[0].length === 0 && args[1].length === 0) ? animes : getFilteredAnime(args[0], args[1]);
+export const getAnimes = (genre: string[], theme: string[]): Anime[][] => {
+  return genre.length === 0 && theme.length === 0 ? animes : getFilteredAnime(genre, theme);
 };
 
 export const getAnime = (name: string): Anime | undefined => {
@@ -72,7 +72,7 @@ export const getAnime = (name: string): Anime | undefined => {
   }
 };
 
-export const getJapaneseTitle = (): Anime[][] => {
+export const getJapaneseTitle = (genre: string[], theme: string[]): Anime[][] => {
     const sortedAnime = new Array(26);
 
     for (let i = 0; i < sortedAnime.length; i++) {
@@ -91,8 +91,7 @@ export const getJapaneseTitle = (): Anime[][] => {
           : firstCharASCII - upperCaseA;
       sortedAnime[index].push(flat_animes[i]);
     }
-
-    return sortedAnime;
+    return genre.length === 0 && theme.length === 0 ? sortedAnime : getFilteredAnime(genre, theme);
 }
 
 export const getGenres = (): string[] => {

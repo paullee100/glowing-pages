@@ -57,17 +57,12 @@
     transform: translateX(26px);
 }
 
-.theme_container {
-    display: flex;
-    background-color: gray;
-    border-radius: 5px;
-}
-
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    flex-direction: column;
 }
 
 .searchButton {
@@ -83,6 +78,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 20px 0;
 }
 
 .searchButton:before {
@@ -135,28 +131,4 @@
   left: 0;
   top: 0;
   border-radius: 10px;
-}
-
-.navigateToLetter {
-    display: flex;
-    justify-content: space-between;
-}
-
-.alphabetLink:visited {
-    color: blue;
-}
-
-.spacing {
-    margin-top: 15px;
-}
-
-.section {
-    text-align: center;
-}
-
-.error {
-    text-align: center;
-    color: red;
-    font-weight: bold;
-    font-size: 22px;
 }

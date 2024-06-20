@@ -1,0 +1,54 @@
+.navigateToLetter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.alphabetLink:visited {
+    color: blue;
+}
+
+.section {
+    text-align: center;
+}
+
+.spacing {
+    margin-top: 15px;
+}
+
+.ch {
+    display: none;
+}
+
+.revealMore {
+    display: flex;
+    justify-content: center;
+}
+  
+.ch:checked ~ .content {
+    display: block;
+}
+  
+.ch:checked ~ .revealMore label {
+    display: none;
+}
+  
+.content {
+    display: none;
+}
+  
+.revealMore label, .content label {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #fff;
+    color: var(--bg);
+    padding: 3px 13px;
+    border-radius: 3px;
+    margin-top: 12px;
+}
+  
+.error {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+      font-size: 22px;
+}

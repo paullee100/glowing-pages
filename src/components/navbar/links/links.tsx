@@ -14,6 +14,10 @@ const links = [
     title: "Anime Watched",
     path: "/anime-watched",
   },
+  {
+    title: "Anime Currently Watching",
+    path: "/anime-watching",
+  },
 ];
 
 const Links = () => {
