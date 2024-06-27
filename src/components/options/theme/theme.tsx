@@ -11,8 +11,8 @@ const ThemeSearch = forwardRef<HTMLDivElement>((props, ref) => {
         <div className={styles.theme_container} ref={ref}>
             {themes.map((theme) => (
               <div key={theme}>
-                  <input type="checkbox" value={theme} />
-                  {theme}
+                  <input id={theme} type="checkbox" value={theme} />
+                  <label htmlFor={theme}>{theme}</label>
                 </div>
             ))}
         </div>

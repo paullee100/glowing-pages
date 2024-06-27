@@ -173,6 +173,23 @@ export const i_anime = [
         "24 minutes",
     ),
     new Anime(
+        "Is the Order a Rabbit?",
+        "Gochuumon wa Usagi desu ka?",
+        "https://cdn.myanimelist.net/images/anime/6/79600.jpg",
+        12,
+        "PG-13 - Teens 13 or older",
+        Synopsis.OrderRabbit,
+        [""],
+        "TV",
+        "Apr 10 2014 to Jun 26 2014",
+        "Spring 2014",
+        "White Fox",
+        "4-koma manga",
+        ["Slice of Life"],
+        ["CGDCT", "Iyashikei", "Workplace"],
+        "23 minutes"
+    ),
+    new Anime(
         "Isekai Quartet",
         "",
         "https://cdn.myanimelist.net/images/anime/1965/99667.jpg",

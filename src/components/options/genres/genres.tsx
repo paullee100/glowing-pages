@@ -11,8 +11,8 @@ const GenresSearch = forwardRef<HTMLDivElement>((props, ref) => {
         <div className={styles.genre_container} ref={ref}>
             {genres.map((genre) => (
                 <div key={genre}>
-                    <input type="checkbox" name="genre" value={genre}/>
-                    {genre}
+                    <input id={genre} type="checkbox" name="genre" value={genre}/>
+                    <label htmlFor={genre}>{genre}</label>
                 </div>
             ))}
         </div>

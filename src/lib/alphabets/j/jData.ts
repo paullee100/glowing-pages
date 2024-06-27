@@ -138,4 +138,21 @@ export const j_anime = [
         ["CGDCT", "School"],
         "3 minutes",
     ),
+    new Anime(
+        "Jujutsu Kaisen 0",
+        "Jujutsu Kaisen 0 Movie",
+        "https://cdn.myanimelist.net/images/anime/1121/119044.jpg",
+        1,
+        "R - 17+ (violence & profanity)",
+        Synopsis.Jujutsu0,
+        [""],
+        "Movie",
+        "Dec 24 2021",
+        "Winter 2022",
+        "MAPPA",
+        "Manga",
+        ["Action", "Fantasy"],
+        ["School"],
+        "1 hour 44 minutes"
+    )
 ]
