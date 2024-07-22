@@ -18,6 +18,10 @@ const links = [
     title: "Anime Currently Watching",
     path: "/anime-watching",
   },
+  {
+    title: "Recipes",
+    path: "/recipes",
+  },
 ];
 
 const Links = () => {

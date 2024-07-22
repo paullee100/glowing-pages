@@ -11,7 +11,6 @@ interface Props {
 }
 
 const AnimeCard = ( { anime, title, show } : Props) => {
-  console.log(anime.type)
   return (
     <div className={styles.container}>
         <div className={styles.top}>

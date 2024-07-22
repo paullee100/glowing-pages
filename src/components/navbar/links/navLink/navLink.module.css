@@ -14,3 +14,7 @@
 .menuButton {
     text-decoration: none;
 }
+
+.menuButton:visited {
+    color: blue;
+}
