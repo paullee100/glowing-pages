@@ -6,7 +6,7 @@ import styles from "./animepage.module.css";
 import { Anime } from "@/lib/Anime";
 
 export function generateStaticParams() {
-  const animes: Anime[] = getAnimes([], []).flat();
+  const animes: Anime[] = getAnimes([], [], []).flat();
 
   return animes.map((title) => ({
     anime: title.engTitle,
