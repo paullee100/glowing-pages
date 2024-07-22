@@ -13,7 +13,7 @@ interface Prop {
 const AnimeContent = ( { animes, state }: Prop) => {
   return (
     <div>
-        {animes?.length === 27 ? (
+        {animes?.length === 26 ? (
           <div className={styles.navigateToLetter}>
             {alphabets.map((alphabet) => (
               <Link
@@ -31,7 +31,7 @@ const AnimeContent = ( { animes, state }: Prop) => {
 
         {animes[0].length > 0 ? animes?.map((letter, index) => (
           <div key={index}>
-            {animes?.length === 27 ? (
+            {animes?.length === 26 ? (
               <div>
                 <h1
                   id={String.fromCharCode(65 + index)}
