@@ -241,6 +241,23 @@ export const t_anime = [
         "24 minutes",
     ),
     new Anime(
+        "The Demon Sword Master of Excalibur Academy",
+        "Seiken Gakuin no Makentsukai",
+        "https://cdn.myanimelist.net/images/anime/1506/138529.jpg",
+        12,
+        "R - 17+ (violence & profanity)",
+        Synopsis.DemonSword,
+        [],
+        "TV",
+        "Oct 3 2023 to Dec 19 2023",
+        "Fall 2023",
+        "Passione",
+        "Light novel",
+        ["Action", "Fantasy"],
+        ["Harem", "Reincarnation", "School"],
+        "23 minutes"
+    ),
+    new Anime(
         "The Familiar of Zero",
         "Zero no Tsukaima",
         "https://cdn.myanimelist.net/images/anime/8/20680.jpg",

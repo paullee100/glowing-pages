@@ -13,7 +13,7 @@ interface Prop {
 const AnimeContent = ( { animes, state }: Prop) => {
   return (
     <div>
-        {animes?.length === 26 ? (
+        {animes?.length === 27 ? (
           <div className={styles.navigateToLetter}>
             {alphabets.map((alphabet) => (
               <Link
@@ -31,23 +31,30 @@ const AnimeContent = ( { animes, state }: Prop) => {
 
         {animes[0].length > 0 ? animes?.map((letter, index) => (
           <div key={index}>
-            {animes?.length === 26 ? (
-              <h1
-                id={String.fromCharCode(65 + index)}
-                className={styles.section}>
-                {String.fromCharCode(65 + index)}
-              </h1>
+            {animes?.length === 27 ? (
+              <div>
+                <h1
+                  id={String.fromCharCode(65 + index)}
+                  className={styles.section}>
+                  {String.fromCharCode(65 + index)}
+                </h1>
+
+                <input id={`ch${index}`} className={styles.ch} type="checkbox" />
+                <div className={styles.content}>
+                  <AnimeSection letter={letter} language={state} />
+                  <label htmlFor={`ch${index}`}>Show Less...</label>
+                </div>
+                <div className={styles.revealMore}>
+                  <label htmlFor={`ch${index}`}>Show More...</label>
+                </div>
+              </div>
             ) : (
-              <div className={styles.spacing}></div>
+              <div>
+                <div className={styles.spacing}></div>
+                <AnimeSection letter={letter} language={state} />
+              </div>
             )}
-            <input id={`ch${index}`} className={styles.ch} type="checkbox" />
-            <div className={styles.content}>
-              <AnimeSection letter={letter} language={state} />
-              <label htmlFor={`ch${index}`}>Show Less...</label>
-            </div>
-            <div className={styles.revealMore}>
-              <label htmlFor={`ch${index}`}>Show More...</label>
-            </div>
+
           </div>
         )) : <div className={styles.error}>No animes found...</div>}
       </div>

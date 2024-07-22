@@ -466,7 +466,7 @@ export const a_anime = [
       "Shingeki no Kyojin Season 3",
       "https://cdn.myanimelist.net/images/anime/1173/92110.jpg",
       12,
-      "R - 17+ (violene & profanity)",
+      "R - 17+ (violence & profanity)",
       Synopsis.AttackOnTitan3,
       [""],
       "TV",

@@ -3,7 +3,7 @@ export const Synopsis = {
                    These words describe Seiya Ryuuguuin a little too perfectly. After being summoned by the goddess Ristarte to save the world of Gaeabrande from destruction, the hero prepares himself for his noble journey. While this might be normal, he spends a very long time training himself, despite having overpowered stats. He fights weak enemies using his strongest skills and buys excessive amounts of supplies and potions—all to stay safe.
                    While his attitude may be a bit annoying, it might just be the saving grace of Gaeabrande, especially considering that it is a world where the forces of evil dominate each and every expectation.`,
 
-    CaseClosedHanzawa: `[ADD LATER]`,
+    CaseClosedHanzawa: `A silhouetted suspect moves to the crime-infested town of Beika with murder in mind, in this spinoff spoof of "Detective Conan."`,
 
     CellsAtWork: `Inside the human body, roughly 37.2 trillion cells work energetically 24 hours a day and 365 days a year. Fresh out of training, the cheerful and somewhat airheaded Sekkekkyuu AE3803 is ready to take on the ever-so-important task of transporting oxygen. As usual, Hakkekkyuu U-1146 is hard at work patrolling and eliminating foreign bacteria seeking to make the body their new lair. Elsewhere, little platelets are lining up for a new construction project.
                   Dealing with wounds and allergies, getting lost on the way to the lungs, and bickering with similar cell types, the daily lives of cells are always hectic as they work together to keep the body healthy!`,

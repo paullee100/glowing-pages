@@ -6,9 +6,9 @@
     height: 500px;
 }
 
-.top {
+/* .top {
     display: flex;
-}
+} */
 
 .imgContainer {
     width: 100%;
@@ -18,6 +18,10 @@
 
 .bottom {
     text-align: center;
+}
+
+.TV {
+    background-color: blue;
 }
 
 .detail {

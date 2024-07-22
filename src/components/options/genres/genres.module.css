@@ -6,3 +6,9 @@
     display: inline-flex;
     margin-right: 24px;
 }
+
+.genre_container label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

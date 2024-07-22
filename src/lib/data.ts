@@ -1,3 +1,4 @@
+import { specialChar } from "./alphabets/_special/special";
 import { a_anime } from "./alphabets/a/aData";
 import { b_anime } from "./alphabets/b/bData";
 import { c_anime } from "./alphabets/c/cData";
@@ -27,6 +28,7 @@ import { z_anime } from "./alphabets/z/zData";
 import { Anime } from "@/lib/Anime";
 
 const animes: Anime[][] = [
+  specialChar,
   a_anime,
   b_anime,
   c_anime,
@@ -57,8 +59,8 @@ const animes: Anime[][] = [
 
 const flat_animes = animes.flat();
 
-export const getAnimes = (genre: string[], theme: string[]): Anime[][] => {
-  return genre.length === 0 && theme.length === 0 ? animes : getFilteredAnime(genre, theme);
+export const getAnimes = (genre: string[], theme: string[], rating: string[]): Anime[][] => {
+  return genre.length === 0 && theme.length === 0 && rating.length == 0 ? animes : getFilteredAnime(genre, theme, rating);
 };
 
 export const getAnime = (name: string): Anime | undefined => {
@@ -72,7 +74,7 @@ export const getAnime = (name: string): Anime | undefined => {
   }
 };
 
-export const getJapaneseTitle = (genre: string[], theme: string[]): Anime[][] => {
+export const getJapaneseTitle = (genre: string[], theme: string[], rating: string[]): Anime[][] => {
     const sortedAnime = new Array(26);
 
     for (let i = 0; i < sortedAnime.length; i++) {
@@ -91,7 +93,7 @@ export const getJapaneseTitle = (genre: string[], theme: string[]): Anime[][] =>
           : firstCharASCII - upperCaseA;
       sortedAnime[index].push(flat_animes[i]);
     }
-    return genre.length === 0 && theme.length === 0 ? sortedAnime : getFilteredAnime(genre, theme);
+    return genre.length === 0 && theme.length === 0 ? sortedAnime : getFilteredAnime(genre, theme, rating);
 }
 
 export const getGenres = (): string[] => {
@@ -122,6 +124,22 @@ export const getThemes = (): string[] => {
   return themes;
 }
 
-const getFilteredAnime = (genre: string[], theme: string[]): Anime[][] => {
-  return [flat_animes.filter(anime => (genre.length === 0 || genre.every(r => anime.genres.includes(r))) && (theme.length === 0 || theme.every(r => anime.themes.includes(r))))];
+export const getRatings = (): string[] => {
+  const ratings: string[] = [];
+
+  for (const anime of flat_animes) {
+    if (!ratings.includes(anime.rating)) {
+      ratings.push(anime.rating);
+    }
+  }
+  ratings.sort()
+  return ratings;
+}
+
+const getFilteredAnime = (genre: string[], theme: string[], rating: string[]): Anime[][] => {
+  return [flat_animes.filter(anime => 
+    (genre.length === 0 || genre.every(r => anime.genres.includes(r))) && 
+    (theme.length === 0 || theme.every(r => anime.themes.includes(r))) &&
+    (rating.length === 0 || rating.every(r => anime.rating.includes(r)))
+  )];
 }

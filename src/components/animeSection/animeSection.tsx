@@ -17,6 +17,7 @@ const AnimeSection = ({ letter, language }: Props) => {
           <AnimeCard
             anime={anime}
             title={language ? anime.engTitle : anime.japTitle}
+            show={true}
           />
         </div>
       ))}

@@ -297,7 +297,7 @@ export const m_anime = [
         "https://cdn.myanimelist.net/images/anime/1028/117777.jpg",
         12,
         "R - 17+ (violence & profanity)",
-        Synopsis.MushokuTensei2,
+        Synopsis.MushokuTenseiPart2,
         [""],
         "TV",
         "Oct 4 2021 to Dec 20 2021",

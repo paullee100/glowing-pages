@@ -2,56 +2,55 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { getAnimes, getJapaneseTitle } from "@/lib/data";
-import AnimeSection from "@/components/animeSection/animeSection";
 import styles from "./animeWatched.module.css";
-import Link from "next/link";
-import { alphabets } from "@/lib/const";
 import GenresSearch from "@/components/options/genres/genres";
 import ThemeSearch from "@/components/options/theme/theme";
 import { Anime } from "@/lib/Anime";
 import DurationSearch from "@/components/options/duration/duration";
 import AnimeContent from "@/components/animeSection/animeContent";
+import RatingSearch from "@/components/options/rating/rating";
+
+const getFilteredData = (typeRef: React.RefObject<HTMLDivElement>, typeArray: string[]) => {
+  for (let i = 0; i < typeRef.current?.children.length!; i++) {
+    const getCheckBox = typeRef.current?.children[i].firstElementChild as HTMLInputElement
+    if (getCheckBox.checked) {
+      typeArray.push(typeRef.current?.children[i].textContent!);
+    }
+  }
+}
 
 const AnimeWatchedPage = () => {
-  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], []));
+  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], [], []));
   const [state, changeState] = useState(true);
   const [genres, updateGenres] = useState<string[]>([]);
   const [themes, updateThemes] = useState<string[]>([]);
+  const [ratings, updateRatings] = useState<string[]>([]);
 
   const genreRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
+  const ratingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!state) {
-      updateAnimes(getJapaneseTitle(genres, themes));
+      updateAnimes(getJapaneseTitle(genres, themes, ratings));
     } else {
-      updateAnimes(getAnimes(genres, themes));
+      updateAnimes(getAnimes(genres, themes, ratings));
     }
-    // console.log(animes)
   }, [state, genres, themes]);
 
   const searchFilter = () => {
 
     const genreFilter: string[] = [];
     const themeFilter: string[] = [];
+    const ratingFilter: string[] = [];
 
-    for (let i = 0; i < genreRef.current?.children.length!; i++) {
-      const getCheckBox = genreRef.current?.children[i].firstElementChild as HTMLInputElement
-      if (getCheckBox.checked) {
-        console.log(genreRef.current?.children[i].textContent!);
-        genreFilter.push(genreRef.current?.children[i].textContent!);
-      }
-    }
-
-    for (let i = 0; i < themeRef.current?.children.length!; i++) {
-      const getCheckBox = themeRef.current?.children[i].firstElementChild as HTMLInputElement
-      if (getCheckBox.checked) {
-        themeFilter.push(themeRef.current?.children[i].textContent!);
-      }
-    }
+    getFilteredData(genreRef, genreFilter)
+    getFilteredData(themeRef, themeFilter)
+    getFilteredData(ratingRef, ratingFilter)
 
     updateGenres(genreFilter);
     updateThemes(themeFilter);
+    updateRatings(ratingFilter);
   };
 
   return (
@@ -68,7 +67,8 @@ const AnimeWatchedPage = () => {
 
       <GenresSearch ref={genreRef} />
       <ThemeSearch ref={themeRef} />
-      <DurationSearch />
+      <RatingSearch ref={ratingRef} />
+      {/* <DurationSearch /> */}
 
       <div className={styles.center}>
         <button disabled={true}>Clear Filter</button>

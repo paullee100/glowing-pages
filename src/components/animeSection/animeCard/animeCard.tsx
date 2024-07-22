@@ -7,9 +7,11 @@ import { Anime } from '@/lib/Anime';
 interface Props {
     anime: Anime;
     title: string;
+    show: boolean;
 }
 
-const AnimeCard = ( { anime, title } : Props) => {
+const AnimeCard = ( { anime, title, show } : Props) => {
+  console.log(anime.type)
   return (
     <div className={styles.container}>
         <div className={styles.top}>
@@ -24,9 +26,9 @@ const AnimeCard = ( { anime, title } : Props) => {
             </div>
         </div>
 
-        <div className={styles.bottom}>
+        <div className={`${styles.bottom}`}>
             <div key={title} className={styles.title}>{title}</div>
-            <Link href={`anime-watched/${anime.engTitle}`} className={styles.detail}>READ MORE</Link>
+            {show && <Link href={`anime-watched/${anime.engTitle}`} className={styles.detail}>READ MORE</Link>}
         </div>
     </div>
   )
