@@ -1,4 +1,3 @@
-import { specialChar } from "./alphabets/_special/special";
 import { a_anime } from "./alphabets/a/aData";
 import { b_anime } from "./alphabets/b/bData";
 import { c_anime } from "./alphabets/c/cData";
@@ -28,7 +27,6 @@ import { z_anime } from "./alphabets/z/zData";
 import { Anime } from "@/lib/Anime";
 
 const animes: Anime[][] = [
-  specialChar,
   a_anime,
   b_anime,
   c_anime,

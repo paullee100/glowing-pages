@@ -1,5 +1,4 @@
 export const alphabets = [
-    "NON-ALPHANUMERIC",
     "A",
     "B",
     "C",
