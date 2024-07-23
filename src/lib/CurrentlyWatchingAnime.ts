@@ -1,4 +1,4 @@
-import { Anime } from "./Anime";
+import { Anime } from "./class/Anime";
 import { Synopsis } from "./CurrentlyWatchingAnimeSynopsis";
 
 export const currently_watching = [

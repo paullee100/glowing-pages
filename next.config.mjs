@@ -5,6 +5,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: "cdn.myanimelist.net"
+            },
+            {
+                protocol: 'https',
+                hostname: "drive.google.com"
             }
         ]
     }

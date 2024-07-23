@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import styles from "./genres.module.css";
-import { getGenres } from '@/lib/data';
+import { getGenres } from '@/lib/data/animeData';
 
 const GenresSearch = forwardRef<HTMLDivElement>((props, ref) => {
     const genres = getGenres();

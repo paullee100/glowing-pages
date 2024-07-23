@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import AnimeCard from "./animeCard/animeCard";
 import styles from "./animeSection.module.css";
-import { Anime } from "@/lib/Anime";
+import { Anime } from "@/lib/class/Anime";
 
 interface Props {
   letter: Anime[];

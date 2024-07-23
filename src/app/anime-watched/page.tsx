@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { getAnimes, getJapaneseTitle } from "@/lib/data";
+import { getAnimes, getJapaneseTitle } from "@/lib/data/animeData";
 import styles from "./animeWatched.module.css";
 import GenresSearch from "@/components/options/genres/genres";
 import ThemeSearch from "@/components/options/theme/theme";
-import { Anime } from "@/lib/Anime";
+import { Anime } from "@/lib/class/Anime";
 import DurationSearch from "@/components/options/duration/duration";
 import AnimeContent from "@/components/animeSection/animeContent";
 import RatingSearch from "@/components/options/rating/rating";

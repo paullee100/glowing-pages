@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import styles from "./animeCard.module.css";
 import Link from 'next/link';
-import { Anime } from '@/lib/Anime';
+import { Anime } from '@/lib/class/Anime';
 
 interface Props {
     anime: Anime;

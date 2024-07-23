@@ -1,5 +1,5 @@
-import { Anime } from '@/lib/Anime';
-import { getAnimes } from '@/lib/data';
+import { Anime } from '@/lib/class/Anime';
+import { getAnimes } from '@/lib/data/animeData';
 import React, { useState } from 'react'
 import styles from "./language.module.css";
 

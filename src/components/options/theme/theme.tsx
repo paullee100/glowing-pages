@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import styles from "./theme.module.css";
-import { getThemes } from '@/lib/data';
+import { getThemes } from '@/lib/data/animeData';
 
 const ThemeSearch = forwardRef<HTMLDivElement>((props, ref) => {
   const themes = getThemes();

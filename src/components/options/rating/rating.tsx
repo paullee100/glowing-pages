@@ -1,4 +1,4 @@
-import { getRatings } from '@/lib/data';
+import { getRatings } from '@/lib/data/animeData';
 import styles from "./rating.module.css";
 import React, { forwardRef } from 'react'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./animeContent.module.css"
-import { Anime } from '@/lib/Anime'
+import { Anime } from '@/lib/class/Anime'
 import { alphabets } from '@/lib/const'
 import Link from 'next/link'
 import AnimeSection from './animeSection'

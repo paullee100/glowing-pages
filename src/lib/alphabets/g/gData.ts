@@ -1,4 +1,4 @@
-import { Anime } from "@/lib/Anime";
+import { Anime } from "@/lib/class/Anime";
 import { Synopsis } from "./gSynopsis";
 
 export const g_anime = [
