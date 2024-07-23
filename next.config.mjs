@@ -8,6 +8,7 @@ const nextConfig = {
             },
         ]
     },
+    basePath: '/glowing-pages'
 };
 
 export default nextConfig;
