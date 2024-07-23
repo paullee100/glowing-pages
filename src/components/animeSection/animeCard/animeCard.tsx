@@ -17,7 +17,7 @@ const AnimeCard = ( { anime, title, show } : Props) => {
 
             <div className={styles.imgContainer}>
                 <Image
-                src={anime.img || "/noAvatar.png"}
+                src={anime.img || "/noavatar.png"}
                 alt=""
                 fill
                 sizes="100%"

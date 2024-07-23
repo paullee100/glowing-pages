@@ -26,7 +26,7 @@ const AnimePage = ({ params }: any) => {
       <div className={styles.left}>
         <div className={styles.imgContainer}>
           <Image
-            src={data?.img || "/noAvatar.png"}
+            src={data?.img || "/noavatar.png"}
             alt=""
             width={400}
             height={500}
