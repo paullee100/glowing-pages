@@ -9,7 +9,6 @@ interface Props {
 }
 
 const RecipeCard = ({ recipe }: Props) => {
-  console.log("Recipe Card", recipe.name);
 
   return (
     <div>
