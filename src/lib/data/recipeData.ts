@@ -30,7 +30,7 @@ const recipes = [
             "Place the baking sheet into the oven at 400 degrees fahrenheit for about 15 minutes"
         ],
         90,
-        "/public/puffpastry.png"
+        "/glowing-pages/puffpastry.png"
     ),
     new Recipe(
         "Potato and Leek Soup",
@@ -66,7 +66,7 @@ const recipes = [
             "Enjoy!"
         ],
         75,
-        "/public/potatoleeksoup.png"
+        "/glowing-pages/potatoleeksoup.png"
     ),
 ]
 

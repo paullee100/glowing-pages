@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }: Props) => {
         <div className={styles.top}>
           <div className={styles.imgContainer}>
             <Image 
-              src={recipe.image || "/noavatar.png"}
+              src={recipe.image || "/glowing-pages/noavatar.png"}
               alt=""
               fill
               sizes="100%" 

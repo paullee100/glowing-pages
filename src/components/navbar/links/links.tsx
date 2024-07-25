@@ -37,7 +37,7 @@ const Links = () => {
         </div>
         <Image
           className={styles.menuButton}
-          src="/menu.png"
+          src="/glowing-pages/menu.png"
           alt=""
           width={30}
           height={30}

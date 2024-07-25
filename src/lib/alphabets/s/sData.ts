@@ -39,7 +39,7 @@ export const s_anime = [
     new Anime(
         "Scott Pilgrim Takes Off",
         "",
-        "/ScottPilgrimTakesOff.png",
+        "/glowing-pages/ScottPilgrimTakesOff.png",
         8,
         "MA - Mature Rating",
         Synopsis.ScottPilgrim,
