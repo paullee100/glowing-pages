@@ -18,3 +18,7 @@
 .menuButton:visited {
     color: blue;
 }
+
+.menuButton:hover {
+    color: white;
+}
