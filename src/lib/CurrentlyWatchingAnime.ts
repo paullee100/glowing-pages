@@ -21,23 +21,6 @@ export const currently_watching = [
         "24 minutes"
     ),
     new Anime(
-        'Mushoku Tensei: Jobless Reincarnation 2nd Season - Episode 0 "Guardian Fitz"',
-        "Mushoku Tensei II: Isekai Ittara Honki Dasu - Shugo Jutsushi Fitz",
-        "https://cdn.myanimelist.net/images/anime/1627/136934.jpg",
-        1,
-        "R - 17+ (violence & profanity)",
-        Synopsis.MushokuTensei2Special,
-        [],
-        "TV Special",
-        "Jul 3 2023",
-        "Summer 2023",
-        "Studio Bind",
-        "Light novel",
-        ["Adventure", "Drama", "Fantasy", "Ecchi"],
-        ["Isekai", "Reincarnation"],
-        "24 minutes"
-    ),
-    new Anime(
         "Mushoku Tensei: Jobless Reincarnation Season 2",
         "Mushoku Tensei II: Isekai Ittara Honki Dasu",
         "https://cdn.myanimelist.net/images/anime/1898/138005.jpg",

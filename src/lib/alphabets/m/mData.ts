@@ -309,6 +309,23 @@ export const m_anime = [
         "23 minutes",
     ),
     new Anime(
+        'Mushoku Tensei: Jobless Reincarnation 2nd Season - Episode 0 "Guardian Fitz"',
+        "Mushoku Tensei II: Isekai Ittara Honki Dasu - Shugo Jutsushi Fitz",
+        "https://cdn.myanimelist.net/images/anime/1627/136934.jpg",
+        1,
+        "R - 17+ (violence & profanity)",
+        Synopsis.MushokuTensei2Special,
+        [],
+        "TV Special",
+        "Jul 3 2023",
+        "Summer 2023",
+        "Studio Bind",
+        "Light novel",
+        ["Adventure", "Drama", "Fantasy", "Ecchi"],
+        ["Isekai", "Reincarnation"],
+        "24 minutes"
+    ),
+    new Anime(
         "My Dress-Up Darling",
         "Sono Bisque Doll wa Koi wo Suru",
         "https://cdn.myanimelist.net/images/anime/1179/119897.jpg",
