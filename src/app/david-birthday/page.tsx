@@ -22,7 +22,7 @@ const DavidBirthdayPage = () => {
         { speaker: "You don't need to worry about that", responses: [{dialog: "...", reaction:3}]},
         { speaker: "Huh, you're not going to say anything?", responses: [{dialog: "...", reaction:3}]},
         { speaker: "If you want your present, you need to complete a series of tasks.", responses: [{dialog:"Why?", reaction: 4}, {dialog:"Is it a gift card?", reaction:4}]},
-        { speaker: "First, you'll complete riddles, each one tougher then the previous, then trivia questions, and finally a simple observation game. Press the enter key to submit your guess.", responses: [{dialog:"Challenge Accepted!", reaction:-1}, {dialog:"Okay",reaction:-1}, {dialog:"Did you ignore what I said?",reaction:-1}]},
+        { speaker: "You'll complete riddles, each one tougher then the previous, trivia questions, and finally a simple observation game. Press the enter key to submit your guess.", responses: [{dialog:"Challenge Accepted!", reaction:-1}, {dialog:"Okay",reaction:-1}, {dialog:"Did you ignore what I said?",reaction:-1}]},
     ]
 
     const riddles = [
@@ -34,7 +34,8 @@ const DavidBirthdayPage = () => {
     const trivia = [
         { trivia: "What color shirt is Marko wearing right now?", answer: "white" },
         { trivia: "What shape is present in the back of the paper?", answer: "hexagon" },
-        { trivia: "Which MLB team never made a World Series appearance?", answer: "Mariners" },
+        { trivia: "Which MLB team never made a World Series appearance?", answer: "mariners" },
+        { trivia: "Before the statehood of Washington, what was the territory called?", answer: "Columbia" },
     ]
 
     const finalQuestion = "Inside the paper you received, what is the max number listed?"
