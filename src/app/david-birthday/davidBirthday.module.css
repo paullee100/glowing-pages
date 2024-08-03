@@ -3,9 +3,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background-color: black; */
     width: 97vw;
     height: 97vh;
+}
+
+.noBackground {
+    background-color: none;
+}
+
+.blackBackground {
+    /* background-color: black; */
+    background-color: none;
 }
 
 .container * {
@@ -16,6 +24,58 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.cubeContainer {
+    width: 200px;
+    height: 200px;
+    perspective: 800px;
+    margin: 15% auto;
+    z-index: 9;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: spin 5s linear infinite;
+}
+
+.face {
+    position: absolute;
+    border: 2px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin{
+    0%{transform: rotateX(0deg) rotateY(0deg);}
+    100%{transform: rotateX(360deg) rotateY(360deg);}
 }
 
 .light {
@@ -50,12 +110,12 @@
     width: 50%;
 }
 
-.riddleQuestion, .answer { 
+.riddleQuestion, .answer, .triviaQuestion { 
     font-size: 25px;
     text-align: center;
 }
 
-.riddleInput {
+.riddleInput, .triviaInput {
     font-size: 30px;
 }
 

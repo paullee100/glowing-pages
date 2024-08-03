@@ -35,7 +35,6 @@ const Dialog = ( { text, responses, updateIntroduction, updateStages, responsesE
             updateStages!(1)
             return
         }
-        console.log(reaction)
         updateIntroduction!(reaction)
         setIndex(0)
     }
