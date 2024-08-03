@@ -32,7 +32,9 @@ const DavidBirthdayPage = () => {
     ]
 
     const trivia = [
-        { trivia: "", answer: ""}
+        { trivia: "What color shirt is Marko wearing right now?", answer: "white" },
+        { trivia: "What shape is present in the back of the paper?", answer: "hexagon" },
+        { trivia: "Which MLB team never made a World Series appearance?", answer: "Mariners" },
     ]
 
     const finalQuestion = "Inside the paper you received, what is the max number listed?"
@@ -122,6 +124,7 @@ const DavidBirthdayPage = () => {
                 if (!answerDiv!.classList.contains(`${styles.correct}`)) {
                     answerDiv!.classList.add(`${styles.correct}`)                    
                 }
+                answerDiv!.textContent = 'CORRECT! Here is the next riddle!'
 
                 if (currentRiddle === riddles.length-1) {
                     const nextStage = stages+1
@@ -152,6 +155,7 @@ const DavidBirthdayPage = () => {
                 if (!answerDiv!.classList.contains(`${styles.correct}`)) {
                     answerDiv!.classList.add(`${styles.correct}`)                    
                 }
+                answerDiv!.textContent = 'CORRECT! Here is the next trivia!'
 
                 if (currentTrivia === trivia.length-1) {
                     const nextStage = stages+1
