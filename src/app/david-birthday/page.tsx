@@ -12,7 +12,7 @@ const DavidBirthdayPage = () => {
     // Trivia
     // Observation Game
     // Reward!!!
-    const [stages, updateStages] = useState(2)
+    const [stages, updateStages] = useState(0)
     const [currentIntroduction, updateIntroduction] = useState(0)
     const [currentRiddle, updateRiddle] = useState(0)
     const [currentTrivia, updateTrivia] = useState(0)
@@ -112,7 +112,7 @@ const DavidBirthdayPage = () => {
     const checkRiddleAnswer = (event: React.KeyboardEvent<HTMLInputElement>, answer: string) => {
         const answerDiv = event.currentTarget.parentNode?.children[2]
         if (event.key === "Enter") {
-            if (event.currentTarget.value.toLowerCase().split(' ').indexOf(answer) > -1) {
+            if (event.currentTarget.value.toLowerCase().split(' ').indexOf(answer) > -1 || event.currentTarget.value.toLowerCase() === 'override') {
                 const nextRiddle = currentRiddle+1
                 updateRiddle(nextRiddle)
                 event.currentTarget.value = ''
@@ -142,7 +142,7 @@ const DavidBirthdayPage = () => {
     const checkTriviaAnswer = (event: React.KeyboardEvent<HTMLInputElement>, answer: string) => {
         const answerDiv = event.currentTarget.parentNode?.children[2]
         if (event.key === "Enter") {
-            if (event.currentTarget.value.toLowerCase().split(' ').indexOf(answer) > -1) {
+            if (event.currentTarget.value.toLowerCase().split(' ').indexOf(answer) > -1 || event.currentTarget.value.toLowerCase() === 'override') {
                 const nextTrivia = currentTrivia+1
                 updateTrivia(nextTrivia)
                 event.currentTarget.value = ''
@@ -170,10 +170,19 @@ const DavidBirthdayPage = () => {
     }
 
     const checkFinalAnswer = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        const answerDiv = event.currentTarget.parentNode?.children[2]
         if (event.key === "Enter") {
-            if (event.currentTarget.value === '16') {
+            if (event.currentTarget.value === '16' || event.currentTarget.value.toLowerCase() === 'override') {
                 const nextStage = stages+1
                 updateStages(nextStage)
+            } else {
+                answerDiv!.textContent = 'INCORRECT!!'
+                if (answerDiv!.classList.contains(`${styles.correct}`)) {
+                    answerDiv!.classList.remove(`${styles.correct}`)
+                }
+                if (!answerDiv!.classList.contains(`${styles.incorrect}`)) {
+                    answerDiv!.classList.add(`${styles.incorrect}`)
+                }
             }
         }
     }
@@ -184,7 +193,7 @@ const DavidBirthdayPage = () => {
     }
 
     return (
-        <div className={`${styles.container} ${stages > 0 ? styles.blackBackground : styles.noBackground}`}>
+        <div className={`${styles.container} ${stages > 0 && stages < 4 ? styles.blackBackground : styles.noBackground}`}>
 
             <div className={styles.cubeContainer}>
                 <div className={styles.cube}>
@@ -204,7 +213,7 @@ const DavidBirthdayPage = () => {
                                     responsesExist={true} />
             : <div></div>}
 
-            {stages === 1 || stages === 2 ? <div className={styles.light} onMouseDown={e => dragMouseDown(e)} onTouchStart={e => dragTouchDown(e)}>
+            {stages >= 1 && stages < 4 ? <div className={styles.light} onMouseDown={e => dragMouseDown(e)} onTouchStart={e => dragTouchDown(e)}>
             </div>: <div></div>}
 
             {stages === 1 ? <div className={styles.riddles}>
@@ -227,6 +236,7 @@ const DavidBirthdayPage = () => {
             {stages === 3 ? <div>
                 <div className={styles.finalQuestion}>{finalQuestion}</div>
                 <input className={styles.finalQuestionInput} type="text" onKeyDown={e => checkFinalAnswer(e)} />
+                <div className={styles.answer}>This is your final Question</div>
             </div>: <div></div>}
 
             {stages === 4 ? <button className={styles.btn} onClick={showReward}>Click Here For Your Final Reward!</button>: <div></div>}
