@@ -15,15 +15,14 @@ const DavidBirthdayPage = () => {
     // Reward!!!
     const [stages, updateStages] = useState(0)
     const [currentIntroduction, updateIntroduction] = useState(0)
-    const [dialog, updateDialog] = useState(0)
     const [currentRiddle, updateRiddle] = useState(0)
 
     const introduction = [
-        { speaker: "Hello David...", response: ["Who are you?", "Where am I?", "Say Nothing"]},
-        { speaker: "You don't need to worry about that", response: []},
-        { speaker: "Huh, you're not going to say anything?", response: []},
-
-
+        { speaker: "Hello David... Nice to see you again...", responses: [{dialog: "Who are you?", reaction: 1}, {dialog: "Where am I?", reaction: 1}, {dialog: "\"Say Nothing\"", reaction: 2}]},
+        { speaker: "You don't need to worry about that", responses: [{dialog: "...", reaction:3}]},
+        { speaker: "Huh, you're not going to say anything?", responses: [{dialog: "...", reaction:3}]},
+        { speaker: "If you want your present, you need to complete a series of tasks.", responses: [{dialog:"Why?", reaction: 4}, {dialog:"Is it a gift card?", reaction:4}]},
+        { speaker: "First, you'll complete 3 riddles, each one tougher then the previous, then 3 trivia questions, and finally a button game", responses: [{dialog:"Challenge Accepted!", reaction:-1}, {dialog:"Okay",reaction:-1}, {dialog:"Did you ignore what I said?",reaction:-1}]},
     ]
 
     const riddles = [
@@ -36,22 +35,9 @@ const DavidBirthdayPage = () => {
         { trivia: "", answer: ""}
     ]
 
-    // const animate = () => {
-    //     const progressBar = document.querySelector(`.${styles.progress}`) as HTMLElement;
-    //     const newProgress = currentProgress+1
-    //     updateProgress(newProgress)
-    //     progressBar.style.width = newProgress + '%'
-    // }
+    const finalQuestion = "Inside the paper you received, what is the max number listed?"
 
-    // setTimeout(() => {
-    //     let intervalID = setInterval(() => {
-    //         if (currentProgress === 100) {
-    //             clearInterval(intervalID)
-    //         } else {
-    //             animate()
-    //         }
-    //     }, 100)
-    // }, 2000)
+    const rewardDialog = "Congratulations! Now there are tapes next to the numbers inside the paper. Now tear them off to receive your prize inside!"
 
     const dragMouseDown = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         event = event || window.Event
@@ -62,11 +48,11 @@ const DavidBirthdayPage = () => {
         const pos4 = event.clientY
         positions[3] = pos4
         updatePositions(positions)
-        document.onmouseup = closeDragElement
-        document.onmousemove = elementDrag
+        document.onmouseup = closeMouseDragElement
+        document.onmousemove = elementMouseDrag
     }
 
-    const elementDrag = (event: any) => {
+    const elementMouseDrag = (event: any) => {
         event = event || window.Event
         event.preventDefault()
         const pos1 = positions[2] - event.clientX
@@ -82,72 +68,118 @@ const DavidBirthdayPage = () => {
         element.style.left = (element.offsetLeft - pos1) + "px"
     }
 
-    const closeDragElement = (_: any) => {
+    const closeMouseDragElement = (_: any) => {
         document.onmouseup = null
         document.onmousemove = null
-        document.ontouchend = null
-        document.ontouchmove = null
     }
 
     const dragTouchDown = (event: React.TouchEvent<HTMLDivElement>) => {
         event = event || window.Event
-        event.preventDefault()
 
         const touch = event.touches[0] || event.changedTouches[0]
-        const pos3 = touch.clientX
+        const pos3 = touch.pageX
         positions[2] = pos3
-        const pos4 = touch.clientY
+        const pos4 = touch.pageY
+        positions[3] = pos4
+
+        updatePositions(positions)
+        document.ontouchend = closeTouchDragElement
+        document.ontouchmove = elementTouchDrag
+    }
+
+    const elementTouchDrag = (event: TouchEvent) => {
+        event = event || window.Event
+
+        const touch = event.touches[0] || event.changedTouches[0]
+        const pos1 = positions[2] - touch.pageX
+        const pos2 = positions[3] - touch.pageY
+        const pos3 = touch.pageX
+        positions[2] = pos3
+        const pos4 = touch.pageY
         positions[3] = pos4
         updatePositions(positions)
-        document.ontouchend = closeDragElement
-        document.ontouchmove = elementDrag
 
+        const element = document.querySelector(`.${styles.light}`) as HTMLElement
+        element.style.top = (element.offsetTop - pos2) + "px"
+        element.style.left = (element.offsetLeft - pos1) + "px"
+    }
+
+    const closeTouchDragElement = (_: any) => {
+        document.ontouchend = null
+        document.ontouchmove = null
     }
 
     const checkAnswer = (event: React.KeyboardEvent<HTMLInputElement>, answer: string) => {
+        const answerDiv = event.currentTarget.parentNode?.children[2]
         if (event.key === "Enter") {
             if (event.currentTarget.value.toLowerCase().split(' ').indexOf(answer) > -1) {
                 const nextRiddle = currentRiddle+1
                 updateRiddle(nextRiddle)
                 event.currentTarget.value = ''
+                if (answerDiv!.classList.contains(`${styles.incorrect}`)) {
+                    answerDiv!.classList.remove(`${styles.incorrect}`)
+                } 
+                if (!answerDiv!.classList.contains(`${styles.correct}`)) {
+                    answerDiv!.classList.add(`${styles.correct}`)                    
+                }
+
+                if (currentRiddle === riddles.length-1) {
+                    const nextStage = stages+1
+                    updateStages(nextStage)
+                }
             } else {
-                console.log("NOPE!")
+                answerDiv!.textContent = 'INCORRECT!!'
+                if (answerDiv!.classList.contains(`${styles.correct}`)) {
+                    answerDiv!.classList.remove(`${styles.correct}`)
+                }
+                if (!answerDiv!.classList.contains(`${styles.incorrect}`)) {
+                    answerDiv!.classList.add(`${styles.incorrect}`)
+                }
             }
         }
+    }
+
+    const showReward = () => {
+        const stagesUpdate = stages+1
+        updateStages(stagesUpdate)
     }
 
     return (
         <div className={styles.container}>
 
-            <Dialog text={introduction[1].speaker} />
+            {stages === 0 ? <Dialog text={introduction[currentIntroduction].speaker} 
+                                    responses={introduction[currentIntroduction].responses} 
+                                    updateIntroduction={updateIntroduction} 
+                                    updateStages={updateStages} 
+                                    responsesExist={true} />
+            : <div></div>}
 
-            <div className={styles.light} onMouseDown={e => dragMouseDown(e)} onTouchStart={e => dragTouchDown(e)}>
-            </div>
-
-            <div className={styles.progressBar}>
-                <div className={styles.progress}></div>
-            </div>
+            {stages === 1 ? <div className={styles.light} onMouseDown={e => dragMouseDown(e)} onTouchStart={e => dragTouchDown(e)}>
+            </div>: <div></div>}
 
             {stages === 1 ? <div className={styles.riddles}>
 
                 <div className={styles.section}>
-                    <div>{riddles[currentRiddle].riddle}</div>
-                    <input type="text" onKeyDown={e => checkAnswer(e, riddles[currentRiddle].answer)}/>
+                    <div className={styles.riddleQuestion}>{riddles[currentRiddle].riddle}</div>
+                    <input className={styles.riddleInput} type="text" onKeyDown={e => checkAnswer(e, riddles[currentRiddle].answer)}/>
+                    <div className={styles.answer}></div>
                 </div>
 
             </div> : 
             <div></div>}
 
-            <div>
+            {stages === 3 ? <div>
                 <input type="checkbox" />
                 <input type="checkbox" />
                 <input type="checkbox" />
                 <input type="checkbox" />
                 <input type="checkbox" />
                 <input type="checkbox" />
-            </div>
+            </div>: <div></div>}
 
-            <button className={styles.btn}>Click Here</button>
+            {stages === 4 ? <button className={styles.btn} onClick={showReward}>Click Here For Your Final Reward!</button>: <div></div>}
+
+            {stages === 5 ? <Dialog text={rewardDialog} responses={undefined} updateIntroduction={undefined} updateStages={undefined} responsesExist={false} /> : <div></div>}        
         </div>
   )
 }
