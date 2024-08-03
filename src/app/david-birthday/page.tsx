@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './davidBirthday.module.css'
+import Dialog from '@/components/dave/dialog'
 
 const DavidBirthdayPage = () => {
 
@@ -9,6 +10,7 @@ const DavidBirthdayPage = () => {
     // Introduction
     // Riddles
     // Trivia
+    // Buttons
     // ...
     // Reward!!!
     const [stages, updateStages] = useState(0)
@@ -21,11 +23,8 @@ const DavidBirthdayPage = () => {
         { speaker: "You don't need to worry about that", response: []},
         { speaker: "Huh, you're not going to say anything?", response: []},
 
+
     ]
-
-    // useEffect(() => {
-
-    // })
 
     const riddles = [
         { riddle: "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?", answer: "map"},
@@ -86,6 +85,23 @@ const DavidBirthdayPage = () => {
     const closeDragElement = (_: any) => {
         document.onmouseup = null
         document.onmousemove = null
+        document.ontouchend = null
+        document.ontouchmove = null
+    }
+
+    const dragTouchDown = (event: React.TouchEvent<HTMLDivElement>) => {
+        event = event || window.Event
+        event.preventDefault()
+
+        const touch = event.touches[0] || event.changedTouches[0]
+        const pos3 = touch.clientX
+        positions[2] = pos3
+        const pos4 = touch.clientY
+        positions[3] = pos4
+        updatePositions(positions)
+        document.ontouchend = closeDragElement
+        document.ontouchmove = elementDrag
+
     }
 
     const checkAnswer = (event: React.KeyboardEvent<HTMLInputElement>, answer: string) => {
@@ -101,35 +117,38 @@ const DavidBirthdayPage = () => {
     }
 
     return (
-    <div className={styles.container}>
+        <div className={styles.container}>
 
-        <div className={styles.light} onMouseDown={e => dragMouseDown(e)}>
-        </div>
+            <Dialog text={introduction[1].speaker} />
 
-        <div className={styles.progressBar}>
-            <div className={styles.progress}></div>
-        </div>
-
-        <div className={styles.riddles}>
-
-            <div className={styles.section}>
-                <div>{riddles[currentRiddle].riddle}</div>
-                <input type="text" onKeyDown={e => checkAnswer(e, riddles[currentRiddle].answer)}/>
+            <div className={styles.light} onMouseDown={e => dragMouseDown(e)} onTouchStart={e => dragTouchDown(e)}>
             </div>
 
-        </div>
+            <div className={styles.progressBar}>
+                <div className={styles.progress}></div>
+            </div>
 
-        <div>
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-        </div>
+            {stages === 1 ? <div className={styles.riddles}>
 
-        <button className={styles.btn}>Click Here</button>
-    </div>
+                <div className={styles.section}>
+                    <div>{riddles[currentRiddle].riddle}</div>
+                    <input type="text" onKeyDown={e => checkAnswer(e, riddles[currentRiddle].answer)}/>
+                </div>
+
+            </div> : 
+            <div></div>}
+
+            <div>
+                <input type="checkbox" />
+                <input type="checkbox" />
+                <input type="checkbox" />
+                <input type="checkbox" />
+                <input type="checkbox" />
+                <input type="checkbox" />
+            </div>
+
+            <button className={styles.btn}>Click Here</button>
+        </div>
   )
 }
 
