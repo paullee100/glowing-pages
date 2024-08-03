@@ -36,7 +36,7 @@ const AnimeWatchedPage = () => {
     } else {
       updateAnimes(getAnimes(genres, themes, ratings));
     }
-  }, [state, genres, themes]);
+  }, [state, genres, themes, ratings]);
 
   const searchFilter = () => {
 

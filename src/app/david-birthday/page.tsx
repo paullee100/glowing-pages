@@ -212,7 +212,7 @@ const DavidBirthdayPage = () => {
                 <div className={styles.section}>
                     <div className={styles.riddleQuestion}>{riddles[currentRiddle].riddle}</div>
                     <input className={styles.riddleInput} type="text" onKeyDown={e => checkRiddleAnswer(e, riddles[currentRiddle].answer)}/>
-                    <div className={styles.answer}>Here's the first riddle</div>
+                    <div className={styles.answer}>Here is the first riddle</div>
                 </div>
 
             </div> : 
@@ -221,7 +221,7 @@ const DavidBirthdayPage = () => {
             {stages === 2 ? <div className={styles.trivia}>
                 <div className={styles.triviaQuestion}>{trivia[currentTrivia].trivia}</div>
                 <input className={styles.triviaInput} type="text" onKeyDown={e => checkTriviaAnswer(e, trivia[currentTrivia].answer)}/>
-                <div className={styles.answer}>Here's the first trivia</div>
+                <div className={styles.answer}>Here is the first trivia</div>
             </div> : <div></div>}
 
             {stages === 3 ? <div>
