@@ -35,7 +35,7 @@ const DavidBirthdayPage = () => {
         { trivia: "What color shirt is Marko wearing right now?", answer: "white" },
         { trivia: "What shape is present in the back of the paper?", answer: "hexagon" },
         { trivia: "Which MLB team never made a World Series appearance?", answer: "mariners" },
-        { trivia: "Before the statehood of Washington, what was the territory called?", answer: "Columbia" },
+        { trivia: "Before the statehood of Washington, what was the territory called?", answer: "columbia" },
     ]
 
     const finalQuestion = "Inside the paper you received, what is the max number listed?"
