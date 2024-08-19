@@ -20,10 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={inter.className}>
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
-        {/* <Footer /> */}
-        {/* <ScrollToTopButton /> */}
+        <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );
