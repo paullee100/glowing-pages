@@ -190,6 +190,23 @@ export const f_anime = [
         "23 minutes",
     ),
     new Anime(
+        "Frieren: Beyond Journey's End",
+        "Sousou no Frieren",
+        "https://cdn.myanimelist.net/images/anime/1015/138006.jpg",
+        28,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Frieren,
+        [],
+        "TV",
+        "Sep 29 2023 to Mar 22 2024",
+        "Fall 2023",
+        "Madhouse",
+        "Manga",
+        ["Adventure", "Drama", "Fantasy"],
+        [""],
+        "24 minutes"
+    ),
+    new Anime(
         "Fullmetal Alchemist",
         "",
         "https://cdn.myanimelist.net/images/anime/10/75815.jpg",

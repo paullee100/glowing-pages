@@ -173,6 +173,23 @@ export const c_anime = [
         "23 minutes",
     ),
     new Anime(
+        "Classroom of the Elite III",
+        "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season",
+        "https://cdn.myanimelist.net/images/anime/1332/139318.jpg",
+        13,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Classroom3,
+        [""],
+        "TV",
+        "Jan 3 2024 to Mar 27 2024",
+        "Winter 2024",
+        "Lerche",
+        "Light novel",
+        ["Drama", "Suspense"],
+        ["Psychological", "School"],
+        "23 minutes"
+    ),
+    new Anime(
         "Comic Girls",
         "",
         "https://cdn.myanimelist.net/images/anime/1444/140760.jpg",
