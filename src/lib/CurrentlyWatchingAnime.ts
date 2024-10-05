@@ -4,21 +4,21 @@ import { Synopsis } from "./CurrentlyWatchingAnimeSynopsis";
 export const currently_watching = [
 
     new Anime(
-        "Alya Sometimes Hides Her Feelings in Russian",
-        "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",
-        "https://cdn.myanimelist.net/images/anime/1825/142258.jpg",
+        "Reincarnated as a Sword",
+        "Tensei shitara Ken deshita",
+        "https://cdn.myanimelist.net/images/anime/1191/127909.jpg",
         12,
         "PG-13 - Teens 13 or older",
-        Synopsis.Alya,
+        Synopsis.ReincarnatedSword,
         [""],
         "TV",
-        "Jul 3 2024 to Sep 18 2024",
-        "Summer 2024",
-        "Doga Kobo",
+        "Oct 5 2022 to Dec 21 2022",
+        "Fall 2022",
+        "C2C",
         "Light novel",
-        ["Comedy", "Romance"],
-        ["School"],
-        "24 minutes"
+        ["Action", "Adventure", "Fantasy"],
+        ["Isekai", "Reincarnation"],
+        "23 minutes"
     ),
 
     new Anime(

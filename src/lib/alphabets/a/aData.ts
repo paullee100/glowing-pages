@@ -207,6 +207,23 @@ export const a_anime = [
       "3 minutes",
     ),
     new Anime(
+      "Alya Sometimes Hides Her Feelings in Russian",
+      "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",
+      "https://cdn.myanimelist.net/images/anime/1825/142258.jpg",
+      12,
+      "PG-13 - Teens 13 or older",
+      Synopsis.Alya,
+      [""],
+      "TV",
+      "Jul 3 2024 to Sep 18 2024",
+      "Summer 2024",
+      "Doga Kobo",
+      "Light novel",
+      ["Comedy", "Romance"],
+      ["School"],
+      "24 minutes"
+  ),
+    new Anime(
       "Amagi Brilliant Park",
       "",
       "https://cdn.myanimelist.net/images/anime/5/85435.jpg",
