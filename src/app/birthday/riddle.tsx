@@ -54,10 +54,9 @@ const RiddlePage = () => {
             <button className={styles.button}>Submit</button>
         </form>
         <div className={styles.answerHistory}>
-          {answerHistory}
-          {/* {answerHistory.map((val, index) => (
+          {answerHistory.map((val, index) => (
             <div key={`${val}${index}`}>{val}</div>
-          ))} */}
+          ))}
         </div>
         {showKey && <div>The Special Key for this stage is: RDP32</div>}
     </div>
