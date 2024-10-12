@@ -4,21 +4,21 @@ import { Synopsis } from "./CurrentlyWatchingAnimeSynopsis";
 export const currently_watching = [
 
     new Anime(
-        "Reincarnated as a Sword",
-        "Tensei shitara Ken deshita",
-        "https://cdn.myanimelist.net/images/anime/1191/127909.jpg",
-        12,
+        "[Oshi No Ko] Season 2",
+        "\"Oshi no Ko\" 2nd Season",
+        "https://cdn.myanimelist.net/images/anime/1006/143302.jpg",
+        13,
         "PG-13 - Teens 13 or older",
-        Synopsis.ReincarnatedSword,
-        [""],
+        Synopsis.Oshinoko2,
+        [],
         "TV",
-        "Oct 5 2022 to Dec 21 2022",
-        "Fall 2022",
-        "C2C",
-        "Light novel",
-        ["Action", "Adventure", "Fantasy"],
-        ["Isekai", "Reincarnation"],
-        "23 minutes"
+        "Jul 3 2024 to Oct 6 2024",
+        "Summer 2024",
+        "Doga Kobo",
+        "Manga",
+        ["Drama"],
+        ["Reincarnation", "Showbiz"],
+        "25 minutes"
     ),
 
     new Anime(

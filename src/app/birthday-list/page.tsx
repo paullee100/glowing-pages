@@ -1,8 +1,11 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./birthdayList.module.css";
 import Dialog from "@/components/dave/dialog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Birthday List"
+}
 
 const DavidBirthdayPage = () => {
   return (
@@ -49,6 +52,7 @@ const DavidBirthdayPage = () => {
         <li>Steam</li>
         <li>Panera</li>
         <li>Starbucks</li>
+        <li>Crunchyroll</li>
       </ul>
 
       <div className={styles.item}>In the end, fine with anything </div>

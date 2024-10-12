@@ -105,6 +105,23 @@ export const r_anime = [
         "26 minutes",
     ),
     new Anime(
+        "Reincarnated as a Sword",
+        "Tensei shitara Ken deshita",
+        "https://cdn.myanimelist.net/images/anime/1191/127909.jpg",
+        12,
+        "PG-13 - Teens 13 or older",
+        Synopsis.ReincarnatedSword,
+        [""],
+        "TV",
+        "Oct 5 2022 to Dec 21 2022",
+        "Fall 2022",
+        "C2C",
+        "Light novel",
+        ["Action", "Adventure", "Fantasy"],
+        ["Isekai", "Reincarnation"],
+        "23 minutes"
+    ),
+    new Anime(
         "Remake Our Life!",
         "Bokutachi no Remake",
         "https://cdn.myanimelist.net/images/anime/1871/118309.jpg",

@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.revealAnswer {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.question {
+    text-align: center;
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+.input {
+    width: 80vw;
+    font-size: 32px;
+}
+
+.button {
+    margin: 15px 0;
+    font-size: 32px;
+}
+
+.answerHistory {
+    font-size: 32px;
+}
