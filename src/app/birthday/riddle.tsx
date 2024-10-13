@@ -20,7 +20,7 @@ const RiddlePage = () => {
   const answerRiddle = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (userInput === riddles[currentRiddleIndex].answer) {
+    if (userInput.toLowerCase() === riddles[currentRiddleIndex].answer) {
       alert("Correct! Good Job!")
       if (currentRiddleIndex+1 < riddles.length) {
         const newVal = currentRiddleIndex + 1
