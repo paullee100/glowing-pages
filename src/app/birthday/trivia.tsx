@@ -21,7 +21,7 @@ const TriviaPage = () => {
   const answerQuestion = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (userInput === kpopGroup[kpopIndex].answer) {
+    if (userInput.toLowerCase() === kpopGroup[kpopIndex].answer) {
       alert("Correct!!! You got it right!")
       if (kpopIndex+1 < kpopGroup.length) {
         kpopIndex = kpopIndex + 1
