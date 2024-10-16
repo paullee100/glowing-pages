@@ -30,6 +30,11 @@ const DavidBirthdayPage = () => {
         <li><div className={styles.rainbow}>Any color</div></li>
       </ul>
 
+      <div className={styles.item}>Heat Gun</div>
+      <ul>
+        <li><a className={styles.website} href="https://www.amazon.com/Portable-Handheld-Crafts-Embossing-Wrapping/dp/B095NYKQ37" rel="noopener noreferrer" target="_blank">Amazon Link</a></li>
+      </ul>
+
       <div className={styles.item}>Galaxy Note9 Phone Case</div>
       <br />
 

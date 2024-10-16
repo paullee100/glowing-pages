@@ -4,41 +4,6 @@ import { Synopsis } from "./CurrentlyWatchingAnimeSynopsis";
 export const currently_watching = [
 
     new Anime(
-        "[Oshi No Ko] Season 2",
-        "\"Oshi no Ko\" 2nd Season",
-        "https://cdn.myanimelist.net/images/anime/1006/143302.jpg",
-        13,
-        "PG-13 - Teens 13 or older",
-        Synopsis.Oshinoko2,
-        [],
-        "TV",
-        "Jul 3 2024 to Oct 6 2024",
-        "Summer 2024",
-        "Doga Kobo",
-        "Manga",
-        ["Drama"],
-        ["Reincarnation", "Showbiz"],
-        "25 minutes"
-    ),
-
-    new Anime(
-        "My Deer Friend Nokotan",
-        "Shikanoko Nokonoko Koshitantan",
-        "https://cdn.myanimelist.net/images/anime/1094/143324.jpg",
-        12,
-        "PG-13 - Teens 13 or older",
-        Synopsis.Nokotan,
-        [],
-        "TV",
-        "Jul 7 2024 to Sep 18 2024",
-        "Summer 2024",
-        "Wit Studio",
-        "Manga",
-        ["Comedy"],
-        ["Gag Humor", "School"],
-        "23 minutes"
-    ),
-    new Anime(
         "Rent-a-Girlfriend Season 3",
         "Kanojo, Okarishimasu 3rd Season",
         "https://cdn.myanimelist.net/images/anime/1696/136634.jpg",

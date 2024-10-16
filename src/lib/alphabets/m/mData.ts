@@ -360,6 +360,23 @@ export const m_anime = [
         "23 minutes"
     ),
     new Anime(
+        "My Deer Friend Nokotan",
+        "Shikanoko Nokonoko Koshitantan",
+        "https://cdn.myanimelist.net/images/anime/1094/143324.jpg",
+        12,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Nokotan,
+        [],
+        "TV",
+        "Jul 7 2024 to Sep 18 2024",
+        "Summer 2024",
+        "Wit Studio",
+        "Manga",
+        ["Comedy"],
+        ["Gag Humor", "School"],
+        "23 minutes"
+    ),
+    new Anime(
         "My Dress-Up Darling",
         "Sono Bisque Doll wa Koi wo Suru",
         "https://cdn.myanimelist.net/images/anime/1179/119897.jpg",

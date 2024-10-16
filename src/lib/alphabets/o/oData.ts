@@ -156,7 +156,7 @@ export const o_anime = [
         "23 minutes",
     ),
     new Anime(
-        "Oshi No Ko",
+        "[Oshi No Ko]",
         "Oshi no Ko",
         "https://cdn.myanimelist.net/images/anime/1812/134736.jpg",
         11,
@@ -171,6 +171,23 @@ export const o_anime = [
         ["Award Winning", "Drama", "Supernatural"],
         ["Reincarnation", "Showbiz"],
         "30 minutes"
+    ),
+    new Anime(
+        "[Oshi No Ko] Season 2",
+        "\"Oshi no Ko\" 2nd Season",
+        "https://cdn.myanimelist.net/images/anime/1006/143302.jpg",
+        13,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Oshinoko2,
+        [],
+        "TV",
+        "Jul 3 2024 to Oct 6 2024",
+        "Summer 2024",
+        "Doga Kobo",
+        "Manga",
+        ["Drama"],
+        ["Reincarnation", "Showbiz"],
+        "25 minutes"
     ),
     new Anime(
         "Overlord",
