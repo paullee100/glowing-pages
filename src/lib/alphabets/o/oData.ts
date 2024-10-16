@@ -156,7 +156,7 @@ export const o_anime = [
         "23 minutes",
     ),
     new Anime(
-        "[Oshi No Ko]",
+        "Oshi No Ko",
         "Oshi no Ko",
         "https://cdn.myanimelist.net/images/anime/1812/134736.jpg",
         11,
@@ -173,7 +173,7 @@ export const o_anime = [
         "30 minutes"
     ),
     new Anime(
-        "[Oshi No Ko] Season 2",
+        "Oshi No Ko Season 2",
         "\"Oshi no Ko\" 2nd Season",
         "https://cdn.myanimelist.net/images/anime/1006/143302.jpg",
         13,
