@@ -156,6 +156,23 @@ export const h_anime = [
         "23 minutes",
     ),
     new Anime(
+        "Horimiya",
+        "",
+        "https://cdn.myanimelist.net/images/anime/1695/111486.jpg",
+        13,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Horimiya,
+        [],
+        "TV",
+        "Jan 10 2021 to Apr 4 2021",
+        "Winter 2021",
+        "CloverWorks",
+        "Manga",
+        ["Romance"],
+        ["School"],
+        "23 minutes"
+    ),
+    new Anime(
         "How clumsy you are, Miss Ueno",
         "Ueno-san wa Bukiyou",
         "https://cdn.myanimelist.net/images/anime/1874/111374.jpg",

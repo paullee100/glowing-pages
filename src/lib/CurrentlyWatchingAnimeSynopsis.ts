@@ -1,5 +1,7 @@
 export const Synopsis = {
        
+    Horimiya2: `As the graduation ceremony at Katagiri High School comes to an end, Kyouko Hori, her boyfriend Izumi Miyamura, and their friends begin to look back on their time as students. The moments they shared together may be fleeting, but each one is a colorful piece of their precious memories.`,
+
     RentAGirlfriend3: `With her late grandfather's inspiring words in mind, Chizuru Mizuhara teams up with her friend Kazuya Kinoshita to launch a crowdfunding campaign for an amateur film. The two hope that with the success of the project, Chizuru can honor her grandparents' wishes before she loses her grandmother as well. After their wild encounters with three girls—Kazuya's clingy "trial" girlfriend, Ruka Sarashina; their nosy new next-door neighbor, Mini Yaemori; and Chizuru's shy work friend, Sumi Sakurasawa—they all collaborate together to reach the campaign goal and begin production of the film. As their ambitious endeavor progresses, Chizuru and Kazuya grow closer and begin to struggle with their mutual feelings.`,
 
     IdolMasterU149: `Mature grade school student Arisu Tachibana is an aspiring idol who receives an invitation from her company president to participate in the Third Entertainment Section—a new idol project. Arisu and eight other young girls soon meet their producer before beginning idol-related activities.

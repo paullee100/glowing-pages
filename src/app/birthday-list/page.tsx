@@ -35,6 +35,12 @@ const DavidBirthdayPage = () => {
         <li><a className={styles.website} href="https://www.amazon.com/Portable-Handheld-Crafts-Embossing-Wrapping/dp/B095NYKQ37" rel="noopener noreferrer" target="_blank">Amazon Link</a></li>
       </ul>
 
+      <div className={styles.item}>Full Season DVDs</div>
+      <ul>
+        <li><a className={styles.website} href="https://en.wikipedia.org/wiki/Bocchi_the_Rock!" rel="noopener noreferrer" target="_blank">Bocchi the Rock</a></li>
+        <li><a className={styles.website} href="https://en.wikipedia.org/wiki/Regular_Show" rel="noopener noreferrer" target="_blank">Regular Show</a></li>
+      </ul>
+
       <div className={styles.item}>Galaxy Note9 Phone Case</div>
       <br />
 
@@ -47,12 +53,14 @@ const DavidBirthdayPage = () => {
       <div className={styles.item}>Pokemon Cards</div>
       <ul>
         <li>Preferably Paldea Evolved</li>
+        <li>Also Scarlet and Violet 151</li>
         <li>Any</li>
       </ul>
 
       <div className={styles.item}>Gift Card</div>
       <ul>
         <li>Amazon</li>
+        <li>eBay</li>
         <li>McDonald</li>
         <li>Steam</li>
         <li>Panera</li>

@@ -27,6 +27,7 @@ const AnimeCard = ( { anime, title, show } : Props) => {
 
         <div className={`${styles.bottom}`}>
             <div key={title} className={styles.title}>{title}</div>
+            {/* TODO: Star rating goes here */}
             {show && <Link href={`anime-watched/${anime.engTitle}`} className={styles.detail}>READ MORE</Link>}
         </div>
     </div>
