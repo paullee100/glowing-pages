@@ -173,6 +173,23 @@ export const h_anime = [
         "23 minutes"
     ),
     new Anime(
+        "Horimiya: The Missing Pieces",
+        "Horimiya: Piece",
+        "https://cdn.myanimelist.net/images/anime/1007/136277.jpg",
+        13,
+        "PG-13 - Teens 13 or older",
+        Synopsis.Horimiya2,
+        [],
+        "TV",
+        "Jul 1 2023 to Sep 23 2023",
+        "Summer 2023",
+        "CloverWorks",
+        "Manga",
+        ["Romance"],
+        ["School"],
+        "23 minutes"
+    ),
+    new Anime(
         "How clumsy you are, Miss Ueno",
         "Ueno-san wa Bukiyou",
         "https://cdn.myanimelist.net/images/anime/1874/111374.jpg",

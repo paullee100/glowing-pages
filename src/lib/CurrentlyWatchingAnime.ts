@@ -4,24 +4,6 @@ import { Synopsis } from "./CurrentlyWatchingAnimeSynopsis";
 export const currently_watching = [
 
     new Anime(
-        "Horimiya: The Missing Pieces",
-        "Horimiya: Piece",
-        "https://cdn.myanimelist.net/images/anime/1007/136277.jpg",
-        13,
-        "PG-13 - Teens 13 or older",
-        Synopsis.Horimiya2,
-        [],
-        "TV",
-        "Jul 1 2023 to Sep 23 2023",
-        "Summer 2023",
-        "CloverWorks",
-        "Manga",
-        ["Romance"],
-        ["School"],
-        "23 minutes"
-    ),
-
-    new Anime(
         "Rent-a-Girlfriend Season 3",
         "Kanojo, Okarishimasu 3rd Season",
         "https://cdn.myanimelist.net/images/anime/1696/136634.jpg",

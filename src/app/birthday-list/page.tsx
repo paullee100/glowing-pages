@@ -10,14 +10,20 @@ export const metadata: Metadata = {
 const DavidBirthdayPage = () => {
   return (
     <div>
-      <h1>What I Want For My Birthday</h1>
-      <div className={styles.item}>Cirkul Water Bottle and Flavor</div>
+      <h1>Gift List</h1>
+
+      <s><div className={styles.item}>Cirkul Water Bottle and Flavor</div>
       <ul>
         <li>Available at Spanaway Walmart (Aisle H25)</li>
         <li>Bundle $20-$30</li>
         <li>
           Cirkul <a className={styles.website} href="https://drinkcirkul.com/" rel="noopener noreferrer" target="_blank">Website</a>
         </li>
+      </ul></s>
+
+      <div className={styles.item}>Cirkul Flavor Cartridge</div>
+      <ul>
+        <li>Any flavor</li>
       </ul>
 
       <div className={styles.item}>Samsung smartwatch</div>
@@ -30,10 +36,10 @@ const DavidBirthdayPage = () => {
         <li><div className={styles.rainbow}>Any color</div></li>
       </ul>
 
-      <div className={styles.item}>Heat Gun</div>
+      <s><div className={styles.item}>Heat Gun</div>
       <ul>
         <li><a className={styles.website} href="https://www.amazon.com/Portable-Handheld-Crafts-Embossing-Wrapping/dp/B095NYKQ37" rel="noopener noreferrer" target="_blank">Amazon Link</a></li>
-      </ul>
+      </ul></s>
 
       <div className={styles.item}>Full Season DVDs</div>
       <ul>
@@ -41,7 +47,7 @@ const DavidBirthdayPage = () => {
         <li><a className={styles.website} href="https://en.wikipedia.org/wiki/Regular_Show" rel="noopener noreferrer" target="_blank">Regular Show</a></li>
       </ul>
 
-      <div className={styles.item}>Galaxy Note9 Phone Case</div>
+      <s><div className={styles.item}>Galaxy Note9 Phone Case</div></s>
       <br />
 
       <div className={styles.item}>Sport Cards</div>
