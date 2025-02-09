@@ -60,6 +60,7 @@ const DavidBirthdayPage = () => {
       <ul>
         <li>Preferably Paldea Evolved</li>
         <li>Also Scarlet and Violet 151</li>
+        <li>Also Surging Sparks</li>
         <li>Any</li>
       </ul>
 
