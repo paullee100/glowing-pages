@@ -3,6 +3,10 @@ import { NextResponse } from "next/server"
 import bcrypt from "bcrypt"
 import { User } from "@/lib/models"
 
+export function generateStaticParams() {
+  return []
+}
+
 export const POST = async(request: any) => {
     const {username, email, password} = await request.json()
 
