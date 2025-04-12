@@ -28,7 +28,7 @@ const LoginPage = () => {
         <div><Link href="forgot-password" className={styles.link}>Forgot Password</Link></div>
 
         <div>
-            Don't have an account? 
+            Dont have an account? 
             <Link href="register" className={styles.link}>Register</Link>
         </div>
     </div>
