@@ -1,7 +1,7 @@
 import { getAnime, getAnimes } from "@/lib/data/animeData";
 import React from "react";
 import Image from "next/image";
-import { URLEncoding } from "@/lib/const";
+import { URLEncoding } from "@/lib/data/const";
 import styles from "./animepage.module.css";
 import { Anime } from "@/lib/class/Anime";
 

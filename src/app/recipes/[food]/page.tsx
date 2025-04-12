@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./recipeItemPage.module.css";
 import { getRecipe, getRecipes } from '@/lib/data/recipeData';
-import { URLEncoding } from '@/lib/const';
+import { URLEncoding } from '@/lib/data/const';
 import { Anime } from '@/lib/class/Anime';
 
 export function generateStaticParams() {

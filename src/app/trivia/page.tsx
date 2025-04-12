@@ -3,15 +3,15 @@
 import React, { useState } from 'react'
 import styles from './superbowl.module.css'
 
-const SuperbowlPage = () => {
+const TriviaPage = () => {
 
   const [choices, setChoices] = useState(['', '', '','','','','','','','','','','','','','','','','',])
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     console.log(choices)
     const url = 'https://script.google.com/macros/s/AKfycbyxSVV8aGC69UsZ1UFreCGYgCEyi4i6pAMJt4hOSKIq-oDApv7vgJQTUoYgTt8J8cwW/exec'
-    fetch(url, {
+    await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: (
@@ -46,7 +46,7 @@ const SuperbowlPage = () => {
         </div>
 
         <h2>1. Will the opening kickoff result in a touchback?</h2>
-        <div className={styles.choices}>
+        <div className={styles.choices} aria-required>
           <input type="radio" id="1a" name="1" onChange={e => handleChoices(e, "Yes", 1)}/>
           <label htmlFor="1a">Yes</label>
 
@@ -235,4 +235,4 @@ const SuperbowlPage = () => {
   )
 }
 
-export default SuperbowlPage
+export default TriviaPage
