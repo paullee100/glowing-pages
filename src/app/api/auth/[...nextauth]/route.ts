@@ -1,5 +1,5 @@
 export function generateStaticParams() {
-  return ""
+  return []
 }
 
 export { GET, POST } from "@/lib/auth"
