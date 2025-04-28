@@ -19,11 +19,11 @@ const YtDownPage = () => {
 
         try {
             const response = await fetch('/glowing-pages/api/dl', {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ link }),
+                // body: JSON.stringify({ link }),
             });
 
             if (response.ok) {

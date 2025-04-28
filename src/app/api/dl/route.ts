@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server'
 import os from 'os'
 import path from 'path'
 
-export const POST = async(request: Request) => {
+export const GET = async() => {
   try {
-    const { link } = await request.json()
+    // const { link } = await request.json()
 
     // console.log(link)
     const downloadDir = path.join(os.homedir(), 'Downloads')
