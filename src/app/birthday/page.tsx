@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import styles from './birthday.module.css'
 import TriviaPage from './trivia'
 import RiddlePage from './riddle'
 import KeycodePage from './keycode'
@@ -29,11 +28,11 @@ const BirthdayPage = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       
       {pages[currentStage]}
       <div>
-        <form className={styles.stageUpdater} onSubmit={checkKey}>
+        <form onSubmit={checkKey}>
           <div>Input the Special Key by completing each section: </div>
           <input type="text" onChange={e => setUserInput(e.target.value)} value={userInput} />
           <br />
