@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-const ytDownPage = () => {
+const YtDownPage = () => {
 
     const [link, setLink] = useState('')
     const [error, setError] = useState(false)
@@ -47,4 +47,4 @@ const ytDownPage = () => {
   )
 }
 
-export default ytDownPage
+export default YtDownPage
