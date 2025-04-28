@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import styles from './birthday.module.css'
-import TipPage from './tip'
 import TriviaPage from './trivia'
 import RiddlePage from './riddle'
 import KeycodePage from './keycode'
@@ -10,7 +9,7 @@ import KeycodePage from './keycode'
 const BirthdayPage = () => {
 
   const [currentStage, updateStage] = useState(0)
-  const pages = [<RiddlePage key={0}/>, <TriviaPage key={1}/>, <KeycodePage key={2}/>, <TipPage key={3}/>]
+  const pages = [<RiddlePage key={0}/>, <TriviaPage key={1}/>, <KeycodePage key={2}/>]
 
   const specialKeys = ["RDP32", "TVAP92", "KCP1009"]
   const [specialKeysIndex, setSpecialKeysIndex] = useState(0)
