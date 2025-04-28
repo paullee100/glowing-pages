@@ -19,7 +19,7 @@ const getFilteredData = (typeRef: React.RefObject<HTMLDivElement>, typeArray: st
 }
 
 const AnimePage = () => {
-const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], [], []));
+  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], [], []));
   const [state, changeState] = useState(true);
   const [genres, updateGenres] = useState<string[]>([]);
   const [themes, updateThemes] = useState<string[]>([]);

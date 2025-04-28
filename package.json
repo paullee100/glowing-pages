@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@distube/ytdl-core": "^4.16.9",
     "bcrypt": "^5.1.1",
     "mongoose": "^8.12.1",
     "next": "^14.2.5",
     "next-auth": "^5.0.0-beta.25",
     "react": "^18",
-    "react-dom": "^18",
-    "ytdl-core": "^4.11.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
