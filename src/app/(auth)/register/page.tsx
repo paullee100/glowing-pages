@@ -7,10 +7,13 @@ import { useRouter } from 'next/navigation'
 
 const RegisterPage = () => {
   const [errorMsg, setErrorMsg] = useState(false)
+  const [data, setData] = useState("")
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (data.length > 0) return
 
     try {
         
@@ -43,13 +46,15 @@ const RegisterPage = () => {
     <div>
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
-            <input type="text" name="username" id="username" />
+            <input type="text" name="username" id="username" autoComplete='off' />
             <label htmlFor="email">Email:</label>
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email" id="email" autoComplete='off' />
             <label htmlFor="password">Password:</label>
-            <input type="text" name="password" id="password" />
+            <input type="password" name="password" id="password" autoComplete='off' />
             <label htmlFor="retype_password">Retype Password:</label>
-            <input type="text" name="retype_password" id="retype_password" />
+            <input type="text" name="retype_password" id="retype_password" autoComplete='off' />
+
+            <input type="text" onChange={e => setData(e.target.value)} value={data} placeholder='BOT CHECK' />
 
             <button>Register</button>
         </form>

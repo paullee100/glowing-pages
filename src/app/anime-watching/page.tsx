@@ -1,15 +1,32 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import styles from './animewatching.module.css';
-import { currently_watching } from '@/lib/data/CurrentlyWatchingAnime';
 import AnimeCard from '@/components/animeSection/animeCard/animeCard';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Anime Watch List"
-}
+// export const metadata: Metadata = {
+//   title: "Anime Watch List"
+// }
 
 const AnimeWatchingPage = () => {
-  const animes = currently_watching;
+
+  const [animes, setAnimes] = useState<any[]>([])
+
+  useEffect(() => {
+    fetch('/glowing-pages/api/temp', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => setAnimes(data))
+    .catch(err => console.error(err))
+
+  }, [])
+
+  // const animes = currently_watching;
 
   return (
     <div className={styles.container}>

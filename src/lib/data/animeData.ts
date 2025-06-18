@@ -57,6 +57,10 @@ const animes: Anime[][] = [
 
 const flat_animes = animes.flat();
 
+export const getAllAnimes = () => {
+  return animes
+}
+
 export const getAnimes = (genre: string[], theme: string[], rating: string[]): Anime[][] => {
   return genre.length === 0 && theme.length === 0 && rating.length == 0 ? animes : getFilteredAnime(genre, theme, rating);
 };

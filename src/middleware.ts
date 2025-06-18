@@ -1,9 +1,9 @@
-// import NextAuth from "next-auth";
-// import { authConfig } from "./lib/auth.config";
+import NextAuth from "next-auth";
+import { authConfig } from "./lib/auth.config";
 
-// export default NextAuth(authConfig).auth;
+export default NextAuth(authConfig).auth;
 
-// export const config = {
-//     matcher: ['/glowing-pages/((?!api|static|.*\\..*|_next).*)'],
+export const config = {
+    matcher: ['/glowing-pages/((?!api|static|.*\\..*|_next).*)'],
 
-// }
+}

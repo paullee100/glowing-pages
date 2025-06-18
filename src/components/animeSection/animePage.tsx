@@ -52,8 +52,36 @@ const AnimePage = () => {
     updateRatings(ratingFilter);
   };
 
+  const a = () => {
+
+    // const ab = get_animes()
+
+    // const response = await fetch('/glowing-pages/api/temp', {
+    //   method: 'GET',
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    // })
+
+    // const response = await fetch('/glowing-pages/api/temp', {
+    //   method: 'POST',
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: ""
+    // })
+
+    // if (response.ok) {
+    //   console.log("Finished!")
+    // } else {
+    //   console.error("An error has occurred in animepage")
+    // }
+  }
+
   return (
     <div>
+        <button onClick={a}>Transfer</button>
+
         <div className={styles.translationContainer}>
             <span>English</span>
             <label className={styles.switch}>

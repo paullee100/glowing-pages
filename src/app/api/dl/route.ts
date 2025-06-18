@@ -1,39 +1,39 @@
 import ytdl from '@distube/ytdl-core'
-import fs, { write } from 'fs'
-import { NextResponse } from 'next/server'
-import os from 'os'
-import path from 'path'
 
-export const GET = async() => {
-  try {
-    // const { link } = await request.json()
+export async function GET(req: Request, res: Response) {
+  
+  const { searchParams } = new URL(req.url)
+  const link = searchParams.get('link')
 
-    // console.log(link)
-    const downloadDir = path.join(os.homedir(), 'Downloads')
-
-    const fileName = path.join(downloadDir, 'myfile.txt')
-
-    const writeStream = fs.createWriteStream(fileName)
-    writeStream.write('Hello, World!')
-    writeStream.end()
-
-    // const videoId = link
-
-    // const info = ytdl.getInfo(videoId).then((info: any) => {
-    //   const format = ytdl.chooseFormat(info.formats, { quality: "248" })
-    //   const outputStream = fs.createWriteStream('video.mp4')
-
-
-    //   ytdl.downloadFromInfo(info, { format: format }).pipe(outputStream)
-    //   outputStream.on('finish', () => {
-    //     console.log("Video downloaded")
-    //   })
-
-    // })
-
-    return NextResponse.json({ message: 'File saved successfully' }, { status: 200 })
-  } catch (error) {
-    console.error('Error saving file:', error)
-    return NextResponse.json({ message: 'Error saving file' }, { status: 500 })
+  if (!link || !ytdl.validateURL(link)) {
+    console.error("An error occurred in route.ts in dl")
+    return new Response('Invalid YouTube URL', {
+      status: 400
+    })
   }
+
+  const responseHeaders = new Headers(res.headers)
+  
+  try {
+
+    const info = await ytdl.getInfo(link)
+    const format = ytdl.chooseFormat(info.formats, { quality: 'highestvideo' })
+
+    // responseHeaders.set('Content-Type', 'audio/mpeg')
+    responseHeaders.set('Content-Type', 'video/mpeg')
+    // responseHeaders.set('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp3"`)
+    responseHeaders.set('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp4"`)
+    responseHeaders.set('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')
+
+    const youTubeVideo = ytdl(link, { format })
+    return new Response(youTubeVideo as any, {
+      headers: responseHeaders,
+    })
+  } catch (error) {
+    console.error('An error has occurred:', error)
+    return new Response("An error has occurred", {
+      status: 500
+    })
+  }
+
 }
