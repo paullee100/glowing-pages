@@ -17,10 +17,14 @@ export async function GET(req: Request, res: Response) {
   try {
 
     const info = await ytdl.getInfo(link)
-    const format = ytdl.chooseFormat(info.formats, { quality: 'highestvideo' })
+    // const format = ytdl.chooseFormat(info.formats, { quality: 'highestvideo' })
+    const format = ytdl.chooseFormat(info.formats, {
+      filter: (format) => format.hasVideo && format.hasAudio && format.container === 'mp4',
+      quality: 'highest',
+    })
 
     // responseHeaders.set('Content-Type', 'audio/mpeg')
-    responseHeaders.set('Content-Type', 'video/mpeg')
+    responseHeaders.set('Content-Type', 'video/mp4')
     // responseHeaders.set('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp3"`)
     responseHeaders.set('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp4"`)
     responseHeaders.set('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36')

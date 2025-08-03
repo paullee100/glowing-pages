@@ -14,7 +14,7 @@ const AnimeWatchingPage = () => {
   const [animes, setAnimes] = useState<any[]>([])
 
   useEffect(() => {
-    fetch('/glowing-pages/api/temp', {
+    fetch('/glowing-pages/api/anime/watching', {
       method: 'GET',
       headers: {
         "Content-Type": "application/json"

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@distube/ytdl-core": "^4.16.10",
+    "@distube/ytdl-core": "^4.16.12",
     "bcrypt": "^5.1.1",
     "mongoose": "^8.12.1",
     "next": "^14.2.5",

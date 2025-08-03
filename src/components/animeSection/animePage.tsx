@@ -1,107 +1,131 @@
 'use client'
 
 import { Anime } from '@/lib/class/Anime';
-import { getAnimes, getJapaneseTitle } from '@/lib/data/animeData';
 import React, { useEffect, useRef, useState } from 'react'
-import GenresSearch from '../options/genres/genres';
-import ThemeSearch from '../options/theme/theme';
-import RatingSearch from '../options/rating/rating';
 import AnimeContent from './animeContent';
 import styles from './animePage.module.css'
-
-const getFilteredData = (typeRef: React.RefObject<HTMLDivElement>, typeArray: string[]) => {
-    for (let i = 0; i < typeRef.current?.children.length!; i++) {
-      const getCheckBox = typeRef.current?.children[i].firstElementChild as HTMLInputElement
-      if (getCheckBox.checked) {
-        typeArray.push(typeRef.current?.children[i].textContent!);
-      }
-    }
-}
+import AnimeSection from './animeSection';
 
 const AnimePage = () => {
-  const [animes, updateAnimes] = useState<Anime[][]>(getAnimes([], [], []));
-  const [state, changeState] = useState(true);
-  const [genres, updateGenres] = useState<string[]>([]);
-  const [themes, updateThemes] = useState<string[]>([]);
-  const [ratings, updateRatings] = useState<string[]>([]);
 
-  const genreRef = useRef<HTMLDivElement>(null);
-  const themeRef = useRef<HTMLDivElement>(null);
-  const ratingRef = useRef<HTMLDivElement>(null);
+  const [animes, setAnimes] = useState<Anime[]>([])
+  const [genres, setGenres] = useState<string[]>([]);
+  const [themes, setThemes] = useState<string[]>([]);
+  const [ratings, setRatings] = useState<string[]>([]);
 
   useEffect(() => {
-    if (!state) {
-      updateAnimes(getJapaneseTitle(genres, themes, ratings));
-    } else {
-      updateAnimes(getAnimes(genres, themes, ratings));
-    }
-  }, [state, genres, themes, ratings]);
+    fetch('/glowing-pages/api/anime/watched', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setAnimes(data)
+      const genreList = data.flatMap((item: Anime) => item.genres)
+      const themeList = data.flatMap((item: Anime) => item.themes)
+      const ratingList = data.flatMap((item: Anime) => item.rating)
+      setGenres(Array.from(new Set(genreList)))
+      setThemes(Array.from(new Set(themeList)))
+      setRatings(Array.from(new Set(ratingList)))
+    })
+    .catch(err => console.error(err))
+  }, [])
 
-  const searchFilter = () => {
+  const [displayAnimes, updateAnimes] = useState<Anime[]>(animes);
 
-    const genreFilter: string[] = [];
-    const themeFilter: string[] = [];
-    const ratingFilter: string[] = [];
+  const firstLetterOfAnimeEngTitle = (_: React.MouseEvent<HTMLDivElement, MouseEvent> | React.ChangeEvent<HTMLSelectElement>, letter: string) => {
 
-    getFilteredData(genreRef, genreFilter)
-    getFilteredData(themeRef, themeFilter)
-    getFilteredData(ratingRef, ratingFilter)
+    console.log(letter)
+    const filteredAnimes = animes.filter(anime => {
+      const engName = anime.engTitle.toUpperCase()
+      return engName[0] === letter
+    })
 
-    updateGenres(genreFilter);
-    updateThemes(themeFilter);
-    updateRatings(ratingFilter);
-  };
+    updateAnimes(filteredAnimes)
+    console.log(filteredAnimes)
 
-  const a = () => {
+  }
 
-    // const ab = get_animes()
-
-    // const response = await fetch('/glowing-pages/api/temp', {
-    //   method: 'GET',
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    // })
-
-    // const response = await fetch('/glowing-pages/api/temp', {
-    //   method: 'POST',
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: ""
-    // })
-
-    // if (response.ok) {
-    //   console.log("Finished!")
-    // } else {
-    //   console.error("An error has occurred in animepage")
-    // }
+  const filters = (_: React.ChangeEvent<HTMLSelectElement>, value: any) => {
+    console.log(value)
   }
 
   return (
-    <div>
-        <button onClick={a}>Transfer</button>
+    <div className={styles.container}>
 
-        <div className={styles.translationContainer}>
+        <div className={styles.genre}>
+          <label htmlFor="genreDropdown">Genre</label>
+          <select id="genreDropdown" name="genreDropdown" onChange={event => filters(event, event.target.value)}>
+            <option value={"ANY"}>ANY</option>
+            {genres.map(genre => (
+              <option value={genre} key={genre}>{genre}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.genre}>
+          <label htmlFor="themeDropdown">Theme</label>
+          <select id="themeDropdown" name="themeDropdown" onChange={event => filters(event, event.target.value)}>
+            <option value={"ANY"}>ANY</option>
+            {themes.map(theme => (
+              <option value={theme} key={theme}>{theme}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.genre}>
+          <label htmlFor="ratingDropdown">Rating</label>
+          <select id="ratingDropdown" name="ratingDropdown" onChange={event => filters(event, event.target.value)}>
+            <option value={"ANY"}>ANY</option>
+            {ratings.map(rating => (
+              <option value={rating} key={rating}>{rating}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.mobile}>
+          <label htmlFor="alphabetDropdown">
+            <select name="alphabetDropdown" id="alphabetDropdown" onChange={event => firstLetterOfAnimeEngTitle(event, event.target.value)}>
+              {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
+                <option value={letter} key={`mobile${letter}`}>{letter}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <div className={styles.computer}>
+          {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => (
+            <div key={`comp${letter}`} onClick={event => firstLetterOfAnimeEngTitle(event, letter)}>{letter}</div>
+          ))}
+        </div>
+
+        {/* <div className={styles.translationContainer}>
             <span>English</span>
             <label className={styles.switch}>
             <input type="checkbox" className={styles.input} onClick={() => changeState((state) => !state)}/>
             <span className={styles.slider}></span>
             </label>
             <span>Japanese</span>
+        </div> */}
+
+        {/* <GenresSearch ref={genreRef} />
+        <ThemeSearch ref={themeRef} />
+        <RatingSearch ref={ratingRef} /> */}
+        {/* <DurationSearch /> */}
+
+        <div>
+          <AnimeSection letter={displayAnimes} language={true}/>
         </div>
 
-        <GenresSearch ref={genreRef} />
-        <ThemeSearch ref={themeRef} />
-        <RatingSearch ref={ratingRef} />
-        {/* <DurationSearch /> */}
+        
 
         <div className={styles.center}>
             <button disabled={true}>Clear Filter</button>
-            <button className={styles.searchButton} onClick={searchFilter}>Search</button>
+            {/* <button className={styles.searchButton} onClick={searchFilter}>Search</button> */}
         </div>
 
-        <AnimeContent animes={animes} state={state} />
     </div>
   )
 }

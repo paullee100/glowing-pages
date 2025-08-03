@@ -1,3 +1,45 @@
+.container {
+  width: 100vw;
+}
+
+.genre {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile {
+  display: block;
+}
+
+.computer {
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.computer div {
+  cursor: pointer;
+}
+
+.computer div:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+@media (min-width: 600px) {
+  .mobile {
+    display: none;
+  }
+  .computer {
+    display: flex;
+  }
+}
+
 .switch {
     position: relative;
     display: inline-block;
