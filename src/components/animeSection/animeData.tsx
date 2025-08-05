@@ -26,7 +26,7 @@ const AnimeData = ({ anime }: Props) => {
         .then(res => res.json())
         .then(data => setAnimeData(data))
         .catch(err => console.error(err))
-    }, [])
+    }, [searchParams])
 
     const data = animeData
 

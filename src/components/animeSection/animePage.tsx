@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react'
 import AnimeContent from './animeContent';
 import styles from './animePage.module.css'
 import AnimeSection from './animeSection';
-import { updateANIMES } from '@/lib/data/animeData';
 
 const AnimePage = () => {
 
@@ -31,7 +30,6 @@ const AnimePage = () => {
       setThemes(Array.from(new Set(themeList)))
       setRatings(Array.from(new Set(ratingList)))
 
-      updateANIMES(data)
     })
     .catch(err => console.error(err))
   }, [])

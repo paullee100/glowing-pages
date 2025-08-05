@@ -2,8 +2,6 @@ import React from "react";
 import { URLEncoding } from "@/lib/data/const";
 import { Anime } from "@/lib/class/Anime";
 import AnimeData from "@/components/animeSection/animeData";
-import { getANIMES } from "@/lib/data/animeData";
-import { connectToDb } from "@/lib/utils";
 
 export async function generateStaticParams() {
   const BASE_URL = process.env.WEBSITE_URL
