@@ -3,8 +3,10 @@ import { URLEncoding } from "@/lib/data/const";
 import { Anime } from "@/lib/class/Anime";
 import AnimeData from "@/components/animeSection/animeData";
 import { getANIMES } from "@/lib/data/animeData";
+import { connectToDb } from "@/lib/utils";
 
 export function generateStaticParams() {
+  connectToDb()
   const animes: Anime[] = getANIMES()
 
   return animes.map((title: Anime) => ({
