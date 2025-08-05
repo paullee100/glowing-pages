@@ -1,14 +1,13 @@
-import { getAnime, getAnimes } from "@/lib/data/animeData";
 import React from "react";
-import Image from "next/image";
 import { URLEncoding } from "@/lib/data/const";
-import styles from "./animepage.module.css";
 import { Anime } from "@/lib/class/Anime";
+import AnimeData from "@/components/animeSection/animeData";
+import { getANIMES } from "@/lib/data/animeData";
 
 export function generateStaticParams() {
-  const animes: Anime[] = getAnimes([], [], []).flat();
+  const animes: Anime[] = getANIMES()
 
-  return animes.map((title) => ({
+  return animes.map((title: Anime) => ({
     anime: title.engTitle,
   }));
 }
@@ -19,36 +18,10 @@ const AnimePage = ({ params }: any) => {
   for (const url in URLEncoding) {
     anime = anime.replaceAll(url, URLEncoding[url as keyof Object]);
   }
-
-  const data = getAnime(anime);
+  
   return (
-    <div className={styles.container}>
-      <div className={styles.left}>
-        <div className={styles.imgContainer}>
-          <Image
-            src={data?.img || "/glowing-pages/noavatar.png"}
-            alt=""
-            width={400}
-            height={500}
-          />
-        </div>
-        <div>{data?.engTitle}</div>
-        <div>{data?.japTitle}</div>
-        <div>{data?.episodes}</div>
-        <div>{data?.rating}</div>
-        <div>{data?.type}</div>
-        <div>{data?.aired}</div>
-        <div>{data?.premiered}</div>
-        <div>{data?.studios}</div>
-        <div>{data?.source}</div>
-        <div>{data?.genres.join('|')}</div>
-        <div>{data?.themes.join('|')}</div>
-        <div>{data?.duration}</div>
-      </div>
-      <div className={styles.right}>
-        <div>{data?.description}</div>
-      </div>
-      {/* <div>{data?.watchshow}</div> */}
+    <div>
+      <AnimeData anime={anime} />
     </div>
   );
 };

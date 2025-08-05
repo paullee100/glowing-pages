@@ -1,10 +1,11 @@
 'use client'
 
 import { Anime } from '@/lib/class/Anime';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AnimeContent from './animeContent';
 import styles from './animePage.module.css'
 import AnimeSection from './animeSection';
+import { updateANIMES } from '@/lib/data/animeData';
 
 const AnimePage = () => {
 
@@ -29,27 +30,43 @@ const AnimePage = () => {
       setGenres(Array.from(new Set(genreList)))
       setThemes(Array.from(new Set(themeList)))
       setRatings(Array.from(new Set(ratingList)))
+
+      updateANIMES(data)
     })
     .catch(err => console.error(err))
   }, [])
 
   const [displayAnimes, updateAnimes] = useState<Anime[]>(animes);
+  const [genreFilter, setGenreFilter] = useState<string>("ANY")
+  const [themeFilter, setThemeFilter] = useState<string>("ANY")
+  const [ratingFilter, setRatingFilter] = useState<string>("ANY")
 
   const firstLetterOfAnimeEngTitle = (_: React.MouseEvent<HTMLDivElement, MouseEvent> | React.ChangeEvent<HTMLSelectElement>, letter: string) => {
 
     console.log(letter)
+
+    if (letter === 'ANY') {
+      updateAnimes(animes)
+      return
+    }
+
     const filteredAnimes = animes.filter(anime => {
       const engName = anime.engTitle.toUpperCase()
       return engName[0] === letter
     })
 
     updateAnimes(filteredAnimes)
-    console.log(filteredAnimes)
 
   }
 
-  const filters = (_: React.ChangeEvent<HTMLSelectElement>, value: any) => {
-    console.log(value)
+  const filter = () => {
+    const filteredAnimes = animes.filter(anime =>
+      (genreFilter === 'ANY' || anime.genres.includes(genreFilter)) &&
+      (themeFilter === 'ANY' || anime.themes.includes(themeFilter)) &&
+      (ratingFilter === 'ANY' || anime.rating.includes(ratingFilter))
+    )
+
+    updateAnimes(filteredAnimes)
   }
 
   return (
@@ -57,7 +74,7 @@ const AnimePage = () => {
 
         <div className={styles.genre}>
           <label htmlFor="genreDropdown">Genre</label>
-          <select id="genreDropdown" name="genreDropdown" onChange={event => filters(event, event.target.value)}>
+          <select id="genreDropdown" name="genreDropdown" onChange={event => setGenreFilter(event.target.value)}>
             <option value={"ANY"}>ANY</option>
             {genres.map(genre => (
               <option value={genre} key={genre}>{genre}</option>
@@ -67,7 +84,7 @@ const AnimePage = () => {
 
         <div className={styles.genre}>
           <label htmlFor="themeDropdown">Theme</label>
-          <select id="themeDropdown" name="themeDropdown" onChange={event => filters(event, event.target.value)}>
+          <select id="themeDropdown" name="themeDropdown" onChange={event => setThemeFilter(event.target.value)}>
             <option value={"ANY"}>ANY</option>
             {themes.map(theme => (
               <option value={theme} key={theme}>{theme}</option>
@@ -77,7 +94,7 @@ const AnimePage = () => {
 
         <div className={styles.genre}>
           <label htmlFor="ratingDropdown">Rating</label>
-          <select id="ratingDropdown" name="ratingDropdown" onChange={event => filters(event, event.target.value)}>
+          <select id="ratingDropdown" name="ratingDropdown" onChange={event => setRatingFilter(event.target.value)}>
             <option value={"ANY"}>ANY</option>
             {ratings.map(rating => (
               <option value={rating} key={rating}>{rating}</option>
@@ -85,9 +102,14 @@ const AnimePage = () => {
           </select>
         </div>
 
+        <div>
+          <button onClick={filter}>FILTER</button>
+        </div>
+
         <div className={styles.mobile}>
           <label htmlFor="alphabetDropdown">
             <select name="alphabetDropdown" id="alphabetDropdown" onChange={event => firstLetterOfAnimeEngTitle(event, event.target.value)}>
+              <option value="ANY">ALL</option>
               {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
                 <option value={letter} key={`mobile${letter}`}>{letter}</option>
               ))}
@@ -96,6 +118,7 @@ const AnimePage = () => {
         </div>
 
         <div className={styles.computer}>
+          <div onClick={event => firstLetterOfAnimeEngTitle(event, "ANY")}>ALL</div>
           {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => (
             <div key={`comp${letter}`} onClick={event => firstLetterOfAnimeEngTitle(event, letter)}>{letter}</div>
           ))}
@@ -117,13 +140,6 @@ const AnimePage = () => {
 
         <div>
           <AnimeSection letter={displayAnimes} language={true}/>
-        </div>
-
-        
-
-        <div className={styles.center}>
-            <button disabled={true}>Clear Filter</button>
-            {/* <button className={styles.searchButton} onClick={searchFilter}>Search</button> */}
         </div>
 
     </div>
