@@ -35,7 +35,7 @@ const AnimeData = ({ anime }: Props) => {
             .catch(err => console.error(err))
         }
         
-    }, [currentParams])
+    }, [currentParams, anime])
 
     const data = animeData
 
