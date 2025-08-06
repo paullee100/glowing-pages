@@ -69,7 +69,6 @@ const AnimePage = () => {
 
   return (
     <div className={styles.container}>
-
         <div className={styles.genre}>
           <label htmlFor="genreDropdown">Genre</label>
           <select id="genreDropdown" name="genreDropdown" onChange={event => setGenreFilter(event.target.value)}>

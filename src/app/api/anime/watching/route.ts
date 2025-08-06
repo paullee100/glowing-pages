@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { Anime, getDatabase } from "../../../../lib/models"
+import { WatchingAnime } from "../../../../lib/models"
 import { connectToDb } from "../../../../lib/utils"
 
 
@@ -8,12 +8,15 @@ import { connectToDb } from "../../../../lib/utils"
 //     try {
 //         connectToDb()
         
-//         const allAnimes = ["banana"]
+//         const animeList: any = await getDatabase("watchinganimes")?.collection("lists").find({ }).toArray()
         
+//         if (!animeList) {
+//             return new NextResponse("error", {
+//                 status: 500
+//             })
+//         }
 //         // Manually go over each alphabet
-        
-//         for (const list of allAnimes) {
-//             for (const anime of list) {
+//             for (const anime of animeList) {
 //                 const newAnime = {
 //                             japTitle: anime.japTitle,
 //                             engTitle: anime.engTitle,
@@ -21,7 +24,7 @@ import { connectToDb } from "../../../../lib/utils"
 //                             episodes: anime.episodes,
 //                             rating: anime.rating,
 //                             description: anime.description,
-//                             typeOfShow: anime.type,
+//                             typeOfShow: anime.typeOfShow,
 //                             aired: anime.aired,
 //                             premiered: anime.premiered,
 //                             studios: anime.studios,
@@ -31,17 +34,16 @@ import { connectToDb } from "../../../../lib/utils"
 //                             duration: anime.duration
 //                 }
 
-//                 const dupe = await Anime.findOne({ engTitle: newAnime.engTitle })
+//                 const dupe = await WatchingAnime.findOne({ engTitle: newAnime.engTitle })
 
 //                 if (dupe) {
 //                     continue // skip
 //                 }
         
-//                 await Anime.create(newAnime)
+//                 await WatchingAnime.create(newAnime)
 
 //             }
 
-//         }
 
 //         return new NextResponse("Successful", {
 //             status: 200
@@ -59,7 +61,7 @@ export const GET = async (request: any) => {
     try {
         connectToDb()
     
-        const animeList = await getDatabase("watchinganimes")?.collection("lists").find({ }).toArray()
+        const animeList = await WatchingAnime.find({ })
 
         if (!animeList) {
             throw new Error("Error getting list")

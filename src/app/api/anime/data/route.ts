@@ -1,4 +1,4 @@
-import { getDatabase } from "@/lib/models"
+import { WatchedAnime } from "@/lib/models"
 import { connectToDb } from "@/lib/utils"
 import { NextResponse } from "next/server"
 
@@ -12,7 +12,7 @@ export const GET = async (req: Request, _: Response) => {
     try {
         await connectToDb()
 
-        const anime = await getDatabase("watchedanimes")?.collection("animes").findOne({ engTitle: animeName })
+        const anime = await WatchedAnime.find({ engTitle: animeName })
 
         if (!anime) {
             throw new Error("Error getting animes data")

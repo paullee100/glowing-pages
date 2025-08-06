@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './animewatching.module.css';
 import AnimeCard from '@/components/animeSection/animeCard/animeCard';
 import { Metadata } from 'next';
+import { Anime } from '@/lib/class/Anime';
 
 // export const metadata: Metadata = {
 //   title: "Anime Watch List"
@@ -11,7 +12,7 @@ import { Metadata } from 'next';
 
 const AnimeWatchingPage = () => {
 
-  const [animes, setAnimes] = useState<any[]>([])
+  const [animes, setAnimes] = useState<Anime[]>([])
 
   useEffect(() => {
     fetch('/glowing-pages/api/anime/watching', {
@@ -26,7 +27,17 @@ const AnimeWatchingPage = () => {
 
   }, [])
 
-  // const animes = currently_watching;
+  const a = () => {
+    fetch('/glowing-pages/api/anime/watching', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err))
+  }
 
   return (
     <div className={styles.container}>

@@ -8,7 +8,6 @@ const YtDownPage = () => {
     const [videoUrl, setVideoUrl] = useState('')
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [anchorData, setAnchorData] = useState<string[] | undefined[]>(['', ''])
 
     const startDownload = async () => {
         if (typeof videoUrl !== 'string') return
