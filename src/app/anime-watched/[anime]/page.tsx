@@ -4,10 +4,9 @@ import { Anime } from "@/lib/class/Anime";
 import AnimeData from "@/components/animeSection/animeData";
 
 export async function generateStaticParams() {
-  // const BASE_URL = process.env.WEBSITE_URL
-  const BASE_URL = process.env.DEFAULT_URL
-  console.log(BASE_URL)
-  const animes: Anime[] = await fetch(`http://localhost:3000/glowing-pages/api/anime/watched`, {
+  const BASE_URL = process.env.WEBSITE_URL
+  // const BASE_URL = process.env.DEFAULT_URL
+  const animes: Anime[] = await fetch(`/glowing-pages/api/anime/watched`, {
     method: 'GET',
     headers: {
       "Content-Type": "application/json"
