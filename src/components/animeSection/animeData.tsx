@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Image from "next/image"
 import styles from './animeData.module.css'
 import { Anime } from '@/lib/class/Anime'
+import { useSearchParams } from 'next/navigation'
 
 interface Props {
     anime: string
@@ -13,20 +14,28 @@ const AnimeData = ({ anime }: Props) => {
 
     const [animeData, setAnimeData] = useState<Anime>()
 
-    const searchParams = new URLSearchParams()
-    searchParams.append('animeName', anime)
+    const searchParams = useSearchParams()
+
+    const currentParams = useMemo(() => {
+        return new URLSearchParams(searchParams.toString())
+    }, [searchParams])
 
     useEffect(() => {
-        fetch(`/glowing-pages/api/anime/data?${searchParams.toString()}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(data => setAnimeData(data))
-        .catch(err => console.error(err))
-    }, [searchParams])
+        if (!currentParams.has('animeName')) {
+            currentParams.append('animeName', anime)
+            
+            fetch(`/glowing-pages/api/anime/data?${currentParams.toString()}`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(res => res.json())
+            .then(data => setAnimeData(data))
+            .catch(err => console.error(err))
+        }
+        
+    }, [currentParams])
 
     const data = animeData
 

@@ -5,6 +5,7 @@ import AnimeData from "@/components/animeSection/animeData";
 
 export async function generateStaticParams() {
   const BASE_URL = process.env.WEBSITE_URL
+  // const BASE_URL = process.env.DEFAULT_URL
   const animes: Anime[] = await fetch(`${BASE_URL}/api/anime/watched`, {
     method: 'GET',
     headers: {
