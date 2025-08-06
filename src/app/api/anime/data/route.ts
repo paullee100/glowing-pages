@@ -2,6 +2,8 @@ import { getDatabase } from "@/lib/models"
 import { connectToDb } from "@/lib/utils"
 import { NextResponse } from "next/server"
 
+export const dynamic = 'force-dynamic';
+
 export const GET = async (req: Request, _: Response) => {
 
     const { searchParams } = new URL(req.url)

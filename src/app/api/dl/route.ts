@@ -1,6 +1,6 @@
 import ytdl from '@distube/ytdl-core'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request, res: Response) {
   
