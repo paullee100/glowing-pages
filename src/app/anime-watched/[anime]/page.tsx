@@ -1,18 +1,20 @@
 import React from "react";
-import { URLEncoding } from "@/lib/data/const";
+import { ANIMES, URLEncoding } from "@/lib/data/const";
 import { Anime } from "@/lib/class/Anime";
 import AnimeData from "@/components/animeSection/animeData";
 
 export async function generateStaticParams() {
-  const BASE_URL = process.env.WEBSITE_URL
+  // const BASE_URL = process.env.WEBSITE_URL
   // const BASE_URL = process.env.DEFAULT_URL
-  const animes: Anime[] = await fetch(`https://paullee100.github.io/glowing-pages/api/anime/watched`, {
-    method: 'GET',
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(res => res.json())
+  // const animes: Anime[] = await fetch(`${BASE_URL}/api/anime/watched`, {
+  //   method: 'GET',
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   }
+  // })
+  // .then(res => res.json())
+
+  const animes = ANIMES
 
   return animes.map((title: Anime) => ({
     anime: title.engTitle,
