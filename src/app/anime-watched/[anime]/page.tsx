@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   // const BASE_URL = process.env.WEBSITE_URL
   const BASE_URL = process.env.DEFAULT_URL
   console.log(BASE_URL)
-  const animes: Anime[] = await fetch(`https://paullee100.github.io/glowing-pages/api/anime/watched`, {
+  const animes: Anime[] = await fetch(`http://localhost:3000/glowing-pages/api/anime/watched`, {
     method: 'GET',
     headers: {
       "Content-Type": "application/json"
