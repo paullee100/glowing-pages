@@ -54,7 +54,7 @@ export const dynamic = 'force-dynamic';
 export const GET = async (request: any) => {
 
     try {
-        connectToDb()
+        await connectToDb()
 
         const animeList = await WatchedAnime.find({ })
 

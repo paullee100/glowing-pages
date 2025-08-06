@@ -59,7 +59,7 @@ import { connectToDb } from "../../../../lib/utils"
 export const GET = async (request: any) => {
 
     try {
-        connectToDb()
+        await connectToDb()
     
         const animeList = await WatchingAnime.find({ })
 

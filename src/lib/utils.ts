@@ -11,7 +11,9 @@ export const connectToDb = async() => {
             return
         }
 
-        const db = await mongoose.connect(process.env.MONGO)
+        const db = await mongoose.connect(process.env.MONGO, {
+            serverSelectionTimeoutMS: 20000
+        })
 
         connection.isConnected = db.connections[0].readyState
         console.log(connection.isConnected ? "Connected to Database" : "Not Connected to Database")
