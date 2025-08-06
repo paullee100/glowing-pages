@@ -1,5 +1,7 @@
 import ytdl from '@distube/ytdl-core'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: Request, res: Response) {
   
   const { searchParams } = new URL(req.url)
